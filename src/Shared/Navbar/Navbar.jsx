@@ -15,14 +15,61 @@ const Navbar = () => {
   };
 
   const navLinks = (
-    <>
-      <li><NavLink to="/" className="hover:text-primary">Home</NavLink></li>
-      <li><NavLink to="/packages" className="hover:text-primary">Tour Packages</NavLink></li>
-      <li><NavLink to="/stories" className="hover:text-primary">Travel Stories</NavLink></li>
-      <li><NavLink to="/contact" className="hover:text-primary">Contact</NavLink></li>
-      {user && <li><NavLink to="/dashboard" className="hover:text-primary">Dashboard</NavLink></li>}
-    </>
-  );
+  <>
+    <li>
+      <NavLink
+        to="/"
+        className={({ isActive }) =>
+          isActive ? "text-primary font-bold underline" : "hover:text-primary"
+        }
+      >
+        Home
+      </NavLink>
+    </li>
+    <li>
+      <NavLink
+        to="/PackageDetails"
+        className={({ isActive }) =>
+          isActive ? "text-primary font-bold underline" : "hover:text-primary"
+        }
+      >
+        Tour Packages
+      </NavLink>
+    </li>
+    <li>
+      <NavLink
+        to="/stories"
+        className={({ isActive }) =>
+          isActive ? "text-primary font-bold underline" : "hover:text-primary"
+        }
+      >
+        Travel Stories
+      </NavLink>
+    </li>
+    <li>
+      <NavLink
+        to="/contact"
+        className={({ isActive }) =>
+          isActive ? "text-primary font-bold underline" : "hover:text-primary"
+        }
+      >
+        Contact
+      </NavLink>
+    </li>
+    {user && (
+      <li>
+        <NavLink
+          to="/dashboard"
+          className={({ isActive }) =>
+            isActive ? "text-primary font-bold underline" : "hover:text-primary"
+          }
+        >
+          Dashboard
+        </NavLink>
+      </li>
+    )}
+  </>
+);
 
   return (
     <div className="navbar bg-base-100 shadow-md px-4 md:px-10 sticky top-0 z-50">

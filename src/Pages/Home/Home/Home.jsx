@@ -5,11 +5,14 @@ import Banner from './Banner/Banner';
 import OverviewSection from './OverviewSection/OverviewSection';
 import WhyPeopleLove from './WhyPeopleLove/WhyPeopleLove';
 
+import TourTabs from './TourTabs/TourTabs';
+
 const Home = () => {
     return (
         <div className='mb-5 mt-6 space-y-14'>
             <Banner></Banner>
             <OverviewSection></OverviewSection>
+            <TourTabs></TourTabs>
             <WhyPeopleLove></WhyPeopleLove>
             <PopularDestinations></PopularDestinations>
             <WhyChooseUs></WhyChooseUs>
