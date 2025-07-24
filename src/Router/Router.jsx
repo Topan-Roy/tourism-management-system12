@@ -12,6 +12,7 @@ import AddPackage from "../Pages/Dashboard/AddPackage/AddPackage";
 import PackageDetailsPage from "../Pages/PackageDetails/PackageDetailsPage";
 import ApplyAsGuide from "../Pages/Home/ApplyAsGuide/ApplyAsGuide";
 import MyBookings from "../Pages/Dashboard/MyBookings/MyBookings";
+import Payment from "../Pages/Dashboard/Payment/Payment";
 
 export const router = createBrowserRouter([
   {
@@ -67,6 +68,10 @@ export const router = createBrowserRouter([
       // Tourist Routes
       { path: "my-bookings",
         Component:MyBookings
+      },
+      {
+        path:'payment/:bookingId',
+        Component:Payment
       },
       // { path: "my-story", element: <MyStory /> },
 

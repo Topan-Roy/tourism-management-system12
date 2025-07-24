@@ -64,7 +64,7 @@ const MyBookings = () => {
                     <tr>
                         <th>#</th>
                         <th>Package</th>
-                        
+
                         <th>Date</th>
                         <th>Price</th>
                         <th>Payment</th>
@@ -77,20 +77,21 @@ const MyBookings = () => {
                             <td>{index + 1}</td>
                             <td className="max-w-[180px] truncate">{booking.
                                 packageName}</td>
-                           
+
                             <td>{formatDate(booking.
                                 tourDate)}</td>
                             <td>৳{booking.price}</td>
                             <td>
                                 <span
-                                    className={`badge ${booking.payment_status === "paid"
+                                    className={`badge ${booking.status === "paid"
                                         ? "badge-success"
                                         : "badge-error"
                                         }`}
                                 >
-                                    {booking.payment_status || 'unpaid'}
+                                    {booking.status || 'unpaid'}
                                 </span>
                             </td>
+
                             <td className="space-x-2">
                                 <button
                                     onClick={() => handleView(booking._id)}
