@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import useAxios from "../../../../hooks/useAxios";
 import { FaTimes } from "react-icons/fa";
+import { NavLink } from "react-router";
 
 const OurPackages = () => {
   const axiosSecure = useAxios();
@@ -32,12 +33,16 @@ const OurPackages = () => {
             <p className="text-green-600 font-bold">Price: ${pkg.price}</p>
             <div className="flex justify-between">
               <button
-              onClick={() => setSelectedPackage(pkg)}
-              className="mt-2 bg-blue-500 hover:bg-blue-600 text-white py-1 px-4 rounded"
-            >
-              View Details
-            </button>
-            <button  className="mt-2 bg-blue-500 hover:bg-blue-600 text-white py-1 px-4 rounded"> Package Details</button>
+                onClick={() => setSelectedPackage(pkg)}
+                className="mt-2 bg-blue-500 hover:bg-blue-600 text-white py-1 px-4 rounded"
+              >
+                View Details
+              </button>
+              <NavLink to={`/packages/${pkg._id}`}>
+                <button className="mt-2 bg-blue-500 hover:bg-blue-600 text-white py-1 px-4 rounded">
+                  Package Details
+                </button>
+              </NavLink>
             </div>
           </div>
         </div>
@@ -97,11 +102,11 @@ const MeetOurTourGuides = () => {
           className="bg-white shadow-lg rounded-2xl p-4 flex flex-col items-center"
         >
           <img
-            src={guide.photo}
+            src={guide.image}
             alt={guide.name}
             className="w-32 h-32 rounded-full object-cover mb-4"
           />
-          <h3 className="text-xl font-semibold">{guide.name}</h3>
+          <h3 className="text-xl text-black font-semibold">{guide.name}</h3>
           <p className="text-gray-600">{guide.experience} years experience</p>
           <button className="mt-3 bg-green-500 hover:bg-green-600 text-white py-1 px-4 rounded">
             View Profile
@@ -125,21 +130,19 @@ const TabsComponent = () => {
       <div className="flex justify-center space-x-6 border-b-2 border-gray-300">
         <button
           onClick={() => setActiveTab("packages")}
-          className={`pb-3 font-semibold ${
-            activeTab === "packages"
+          className={`pb-3 font-semibold ${activeTab === "packages"
               ? "border-b-4 border-indigo-600 text-indigo-600"
               : "text-gray-600 hover:text-indigo-600"
-          }`}
+            }`}
         >
           Our Packages
         </button>
         <button
           onClick={() => setActiveTab("guides")}
-          className={`pb-3 font-semibold ${
-            activeTab === "guides"
+          className={`pb-3 font-semibold ${activeTab === "guides"
               ? "border-b-4 border-indigo-600 text-indigo-600"
               : "text-gray-600 hover:text-indigo-600"
-          }`}
+            }`}
         >
           Meet Our Tour Guides
         </button>

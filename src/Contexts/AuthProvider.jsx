@@ -14,8 +14,9 @@ import {
 } from "firebase/auth";
 
 import { auth } from "../Firebase/Firebase.config";
-import { AuthContext } from "./AuthContext";
+
 import axios from "axios";
+import { AuthContext } from "./Context";
 
 
 
@@ -56,24 +57,16 @@ const AuthProvider = ({ children }) => {
   };
 
   useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, (loggedUser) => {
-      setUser(loggedUser);
-      setLoading(false);
+  const unsubscribe = onAuthStateChanged(auth, (loggedUser) => {
+    setUser(loggedUser);
+    setLoading(false);
 
-      if (loggedUser) {
-        // Fetch JWT token from backend
-        axios
-          .post("http://localhost:5000/jwt", { email: loggedUser.email })
-          .then((res) => {
-            localStorage.setItem("access-token", res.data.token);
-          });
-      } else {
-        localStorage.removeItem("access-token");
-      }
-    });
+    // JWT বাদ দেয়া হয়েছে, শুধু user set করছি
+  });
 
-    return () => unsubscribe();
-  }, []);
+  return () => unsubscribe();
+}, []);
+
 
   const authInfo = {
     user,

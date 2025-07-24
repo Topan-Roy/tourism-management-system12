@@ -28,7 +28,7 @@ const Navbar = () => {
     </li>
     <li>
       <NavLink
-        to="/PackageDetails"
+        to="/ff"
         className={({ isActive }) =>
           isActive ? "text-primary font-bold underline" : "hover:text-primary"
         }

@@ -73,7 +73,7 @@ const DashboardLayout = () => {
                 </NavLink>
               </li>
               <li>
-                <NavLink to="/dashboard/my-assigned-tours">
+                <NavLink to="/dashboard/apply-as-guide">
                   <FaGlobeAsia className="mr-2" /> My Assigned Tours
                 </NavLink>
               </li>
