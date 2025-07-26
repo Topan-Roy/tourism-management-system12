@@ -1,14 +1,16 @@
 import { useForm } from "react-hook-form";
 import Swal from "sweetalert2";
 import useAxios from "../../../hooks/useAxios";
+import useAuth from "../../../hooks/useAuth";
 
 
 const AddPackage = () => {
   const { register, handleSubmit, reset } = useForm();
   const axiosSecure = useAxios();
-
+const { user } = useAuth();
   const onSubmit = async (data) => {
     const packageData = {
+       name: user?.displayName,
       title: data.title,
       description: data.description,
       price: parseFloat(data.price),

@@ -4,6 +4,7 @@ import { FcGoogle } from "react-icons/fc";
 import Swal from 'sweetalert2';
 
 import useAuth from '../hooks/useAuth';
+import useAxios from '../hooks/useAxios';
 
 const Login = () => {
     const emailRef = useRef();
@@ -11,7 +12,7 @@ const Login = () => {
     const { singIn, forgetPassword, googleSignIn } = useAuth();
     const navigate = useNavigate();
     const location = useLocation();
-
+    const axiosSecure = useAxios();
     const handleLogin = (e) => {
         e.preventDefault();
         const email = e.target.email.value;
@@ -58,12 +59,30 @@ const Login = () => {
         googleSignIn()
             .then((result) => {
                 const user = result.user;
-                Swal.fire({
-                    title: `Welcome, ${user.displayName}`,
-                    icon: "success",
-                    draggable: true
-                });
-                navigate("/");
+
+                // ✅ Send user data to backend
+                const userInfo = {
+                    name: user.displayName,
+                    email: user.email,
+                    photo: user.photoURL,
+                    role: 'user',
+                    created_at: new Date().toISOString(),
+                    last_log_in: new Date().toISOString()
+                };
+
+                axiosSecure.post('/users', userInfo)
+                    .then(() => {
+                        Swal.fire({
+                            title: `Welcome, ${user.displayName}`,
+                            icon: "success",
+                            draggable: true
+                        });
+                        navigate("/");
+                    })
+                    .catch((error) => {
+                        console.error("User save failed:", error);
+                        Swal.fire("Oops!", "User save failed", "error");
+                    });
             })
             .catch((error) => {
                 console.error(error);

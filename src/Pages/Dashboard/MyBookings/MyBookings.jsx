@@ -99,7 +99,7 @@ const MyBookings = () => {
                                 >
                                     View
                                 </button>
-                                {booking.payment_status !== "paid" && (
+                                {booking.status !== "paid" && (
                                     <button
                                         onClick={() => handlePay(booking._id)}
                                         className="btn btn-xs btn-primary text-black"

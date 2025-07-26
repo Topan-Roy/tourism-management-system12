@@ -4,15 +4,18 @@ import Home from "../Pages/Home/Home/Home";
 import AuthLayout from "../Layout/AuthLayout";
 import Register from "../Authentication/Register/Register";
 import Login from "../Authentication/Login";
-
-
 import PrivateRoute from "../Routes/PrivateRoute";
 import DashboardLayout from "../Layout/DashboardLayout";
 import AddPackage from "../Pages/Dashboard/AddPackage/AddPackage";
 import PackageDetailsPage from "../Pages/PackageDetails/PackageDetailsPage";
-import ApplyAsGuide from "../Pages/Home/ApplyAsGuide/ApplyAsGuide";
 import MyBookings from "../Pages/Dashboard/MyBookings/MyBookings";
 import Payment from "../Pages/Dashboard/Payment/Payment";
+import AddStory from "../Pages/Dashboard/AddStory/AddStory";
+import ManageStories from "../Pages/Dashboard/ManageStories/ManageStories";
+import UpdateStory from "../Pages/Dashboard/UpdateStory/UpdateStory";
+import ManageProfile from "../Pages/Dashboard/ManageProfile/ManageProfile";
+import JoinAsTourGuide from "../Pages/Dashboard/JoinAsTourGuide/JoinAsTourGuide";
+
 
 export const router = createBrowserRouter([
   {
@@ -27,9 +30,8 @@ export const router = createBrowserRouter([
       {
         path: "/packages/:id",
         Component: PackageDetailsPage,
-      }
-
-
+      },
+    
     ]
   },
   {
@@ -47,50 +49,45 @@ export const router = createBrowserRouter([
 
     ]
   },
-  // {
-  //   path:'/PackageDetails',
-  //   Component:PackageDetails,
-
-  //   children:[
-  //     {
-  //       path:"packages/:id",
-  //       Component:PackageDetailsPage
-
-  //     }
-  //   ]
-  // },
+  
   {
     path: "/dashboard",
     element: <PrivateRoute><DashboardLayout /></PrivateRoute>,
     children: [
 
 
-      // Tourist Routes
-      { path: "my-bookings",
-        Component:MyBookings
+      {
+        path:'manageprofile',
+        Component:ManageProfile
       },
       {
-        path:'payment/:bookingId',
-        Component:Payment
+        path: "my-bookings",
+        Component: MyBookings
       },
-      // { path: "my-story", element: <MyStory /> },
-
-      // // Tour Guide Routes
-      // { path: "add-story", element: <GuideRoute><AddStory /></GuideRoute> },
-      // { path: "my-assigned-tours", element: <GuideRoute><MyAssignedTours /></GuideRoute> },
-
-      // Admin Routes
+      {
+        path: 'payment/:bookingId',
+        Component: Payment
+      },
+      {
+        path:'join-as-guide',
+        Component:JoinAsTourGuide
+      },
+      {
+        path: "add-story",
+        Component: AddStory
+      },
+      {
+        path: "my-story",
+        Component: ManageStories
+      },
+      {
+        path: "update-story/:id",
+        Component: UpdateStory
+      },
       {
         path: "add-package",
         Component: AddPackage
       },
-      {
-        path: "apply-as-guide",
-        element: <ApplyAsGuide></ApplyAsGuide>
-      }
-      // { path: "manage-bookings", element: <AdminRoute><ManageBookings /></AdminRoute> },
-      // { path: "all-stories", element: <AdminRoute><AllStories /></AdminRoute> },
-      // { path: "all-users", element: <AdminRoute><AllUsers /></AdminRoute> },
     ],
   },
 ]);

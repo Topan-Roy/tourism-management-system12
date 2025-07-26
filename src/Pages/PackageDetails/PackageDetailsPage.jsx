@@ -41,7 +41,8 @@ const PackageDetailsPage = () => {
     // Handle Booking Submit
     const handleBooking = async (e) => {
         e.preventDefault();
-
+        console.log("Package ID:", packageData._id);
+        console.log("Price:", packageData.price);
         const bookingInfo = {
             packageId: packageData._id,
             packageName: packageData.title,
@@ -77,15 +78,33 @@ const PackageDetailsPage = () => {
             <div className="">
                 <PackageGallery></PackageGallery>
             </div>
-            {/* <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-10">
-               <img src={packageData.images} alt="Package" className="w-full h-auto" />
-            </div> */}
 
             {/* About Tour */}
-            <div className="mb-8">
-                <h2 className="text-2xl font-semibold mb-2">About the Tour</h2>
-                <p className="text-gray-700">{packageData.description}</p>
+            <div className=" rounded-xl shadow-md overflow-hidden md:max-w-2xl mb-8">
+                <div className="md:flex">
+                    <h2 className="text-2xl font-semibold mb-2">About the Tour</h2>
+                    <div className="md:shrink-0">
+                        <img
+                            className="h-48 w-full object-cover md:h-full md:w-48"
+                            src={packageData.images}
+                            alt={packageData.title}
+                        />
+                    </div>
+                    <div className="p-6">
+                        <h2 className="block mt-1 text-xl leading-tight font-semibold ">
+                            {packageData.title}
+                        </h2>
+                        <p className="mt-2 ">{packageData.description}</p>
+
+                        <div className="mt-4 text-sm ">
+                            <p><span className="font-medium">Price:</span> ${packageData.price}</p>
+                            <p><span className="font-medium">Duration:</span> {packageData.duration}</p>
+                            <p><span className="font-medium">Location:</span> {packageData.location}</p>
+                        </div>
+                    </div>
+                </div>
             </div>
+
 
             {/* Tour Plan */}
             <div className="mb-8">

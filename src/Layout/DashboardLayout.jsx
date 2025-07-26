@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { NavLink, Outlet } from 'react-router';
 
 import {
-   FaHome, FaUserEdit, FaUserShield,
+    FaUserEdit, FaUserShield,
   FaPlusCircle, FaBook, FaClipboardList, FaRegNewspaper, FaGlobeAsia,
   FaTimes,
   FaBars
@@ -45,8 +45,8 @@ const DashboardLayout = () => {
           <TourNest></TourNest>
 
           <li>
-            <NavLink to="/dashboard">
-              <FaHome className="mr-2" /> Dashboard Home
+            <NavLink to="/dashboard/manageprofile">
+              <FaRegNewspaper className="mr-2" /> Manage Profile
             </NavLink>
           </li>
 
@@ -59,7 +59,7 @@ const DashboardLayout = () => {
               </li>
               <li>
                 <NavLink to="/dashboard/my-story">
-                  <FaRegNewspaper className="mr-2" /> My Story
+                  <FaRegNewspaper className="mr-2" /> Manage Stories
                 </NavLink>
               </li>
             </>
@@ -73,44 +73,19 @@ const DashboardLayout = () => {
                 </NavLink>
               </li>
               <li>
-                <NavLink to="/dashboard/apply-as-guide">
-                  <FaGlobeAsia className="mr-2" /> My Assigned Tours
+                <NavLink to="/dashboard/join-as-guide">
+                  <FaGlobeAsia className="mr-2" /> Join as tour guide
                 </NavLink>
               </li>
             </>
-         
-
-          
-            <>
+                
+            
               <li>
                 <NavLink to="/dashboard/add-package">
                   <FaPlusCircle className="mr-2" /> Add Package
                 </NavLink>
               </li>
-              <li>
-                <NavLink to="/dashboard/manage-bookings">
-                  <FaBook className="mr-2" /> Manage Bookings
-                </NavLink>
-              </li>
-              <li>
-                <NavLink to="/dashboard/all-stories">
-                  <FaRegNewspaper className="mr-2" /> All Tourist Stories
-                </NavLink>
-              </li>
-              <li>
-                <NavLink to="/dashboard/all-users">
-                  <FaUserShield className="mr-2" /> Manage Users
-                </NavLink>
-              </li>
-            </>
-        
-
-          {/* Shared route */}
-          <li>
-            <NavLink to="/dashboard/profile">
-              <FaUserEdit className="mr-2" /> Update Profile
-            </NavLink>
-          </li>
+              
         </ul>
       </div>
     </div>
