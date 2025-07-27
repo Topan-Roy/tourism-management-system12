@@ -106,17 +106,32 @@ const PackageDetailsPage = () => {
             </div>
 
 
-            {/* Tour Plan */}
+
+            {/* Tour Plan Accordion Style */}
             <div className="mb-8">
                 <h2 className="text-2xl font-semibold mb-4">Tour Plan</h2>
-                <ul className="space-y-3 list-disc pl-5">
+                <div className="space-y-2">
                     {packageData.tourPlan?.map((plan, idx) => (
-                        <li key={idx}>
-                            <strong>Day {plan.day}:</strong> {plan.activities}
-                        </li>
+                        <div
+                            key={idx}
+                            className="collapse collapse-arrow bg-base-100 border border-base-300"
+                        >
+                            <input
+                                type="radio"
+                                name="tour-plan-accordion"
+                                defaultChecked={idx === 0}
+                            />
+                            <div className="collapse-title font-semibold">
+                                Day {plan.day || idx + 1}
+                            </div>
+                            <div className="collapse-content text-sm">
+                                {plan.activity}
+                            </div>
+                        </div>
                     ))}
-                </ul>
+                </div>
             </div>
+
 
             {/* Tour Guide List */}
             <div className="mb-10">

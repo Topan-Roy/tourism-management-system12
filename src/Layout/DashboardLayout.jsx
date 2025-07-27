@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { NavLink, Outlet } from 'react-router';
 
 import {
-    FaUserEdit, FaUserShield,
+  FaUserEdit, FaUserShield,
   FaPlusCircle, FaBook, FaClipboardList, FaRegNewspaper, FaGlobeAsia,
   FaTimes,
   FaBars
@@ -11,7 +11,7 @@ import {
 import TourNest from '../Shared/TourNest/TourNest';
 
 const DashboardLayout = () => {
-   const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
 
   const handleToggle = () => {
     const checkbox = document.getElementById("my-drawer-2");
@@ -45,47 +45,70 @@ const DashboardLayout = () => {
           <TourNest></TourNest>
 
           <li>
-            <NavLink to="/dashboard/manageprofile">
+            <NavLink
+              to="/dashboard/manageprofile"
+              className={({ isActive }) =>
+                isActive ? "text-blue-600 font-semibold flex items-center" : "flex items-center"
+              }
+            >
               <FaRegNewspaper className="mr-2" /> Manage Profile
             </NavLink>
           </li>
 
-        
-            <>
-              <li>
-                <NavLink to="/dashboard/my-bookings">
-                  <FaClipboardList className="mr-2" /> My Bookings
-                </NavLink>
-              </li>
-              <li>
-                <NavLink to="/dashboard/my-story">
-                  <FaRegNewspaper className="mr-2" /> Manage Stories
-                </NavLink>
-              </li>
-            </>
-         
+          <li>
+            <NavLink
+              to="/dashboard/my-bookings"
+              className={({ isActive }) =>
+                isActive ? "text-blue-600 font-semibold flex items-center" : "flex items-center"
+              }
+            >
+              <FaClipboardList className="mr-2" /> My Bookings
+            </NavLink>
+          </li>
 
-        
-            <>
-              <li>
-                <NavLink to="/dashboard/add-story">
-                  <FaPlusCircle className="mr-2" /> Add Story
-                </NavLink>
-              </li>
-              <li>
-                <NavLink to="/dashboard/join-as-guide">
-                  <FaGlobeAsia className="mr-2" /> Join as tour guide
-                </NavLink>
-              </li>
-            </>
-                
-            
-              <li>
-                <NavLink to="/dashboard/add-package">
-                  <FaPlusCircle className="mr-2" /> Add Package
-                </NavLink>
-              </li>
-              
+          <li>
+            <NavLink
+              to="/dashboard/my-story"
+              className={({ isActive }) =>
+                isActive ? "text-blue-600 font-semibold flex items-center" : "flex items-center"
+              }
+            >
+              <FaRegNewspaper className="mr-2" /> Manage Stories
+            </NavLink>
+          </li>
+
+          <li>
+            <NavLink
+              to="/dashboard/add-story"
+              className={({ isActive }) =>
+                isActive ? "text-blue-600 font-semibold flex items-center" : "flex items-center"
+              }
+            >
+              <FaPlusCircle className="mr-2" /> Add Story
+            </NavLink>
+          </li>
+
+          <li>
+            <NavLink
+              to="/dashboard/join-as-guide"
+              className={({ isActive }) =>
+                isActive ? "text-blue-600 font-semibold flex items-center" : "flex items-center"
+              }
+            >
+              <FaGlobeAsia className="mr-2" /> Join as tour guide
+            </NavLink>
+          </li>
+
+          <li>
+            <NavLink
+              to="/dashboard/add-package"
+              className={({ isActive }) =>
+                isActive ? "text-blue-600 font-semibold flex items-center" : "flex items-center"
+              }
+            >
+              <FaPlusCircle className="mr-2" /> Add Package
+            </NavLink>
+          </li>
         </ul>
       </div>
     </div>

@@ -15,6 +15,10 @@ import ManageStories from "../Pages/Dashboard/ManageStories/ManageStories";
 import UpdateStory from "../Pages/Dashboard/UpdateStory/UpdateStory";
 import ManageProfile from "../Pages/Dashboard/ManageProfile/ManageProfile";
 import JoinAsTourGuide from "../Pages/Dashboard/JoinAsTourGuide/JoinAsTourGuide";
+import AllTrips from "../Pages/Home/AllTrips/AllTrips";
+import AboutUs from "../Pages/Home/AboutUs/AboutUs";
+import CommunityPage from "../Pages/Home/CommunityPage/CommunityPage";
+import NotFoundPage from "../Shared/NotFoundPage/NotFoundPage";
 
 
 export const router = createBrowserRouter([
@@ -29,8 +33,21 @@ export const router = createBrowserRouter([
 
       {
         path: "/packages/:id",
-        Component: PackageDetailsPage,
+        // Component: PackageDetailsPage,
+        element:<PrivateRoute><PackageDetailsPage></PackageDetailsPage></PrivateRoute>
       },
+      {
+        path:'all-trips',
+        Component:AllTrips
+      },
+      {
+        path:'about',
+        Component:AboutUs
+      },
+      {
+        path:'communitypage',
+        Component:CommunityPage
+      }
     
     ]
   },
@@ -90,4 +107,8 @@ export const router = createBrowserRouter([
       },
     ],
   },
+  {
+     path: "/*",
+    Component:NotFoundPage
+  }
 ]);

@@ -10,71 +10,82 @@ const Navbar = () => {
 
   const handleLogout = () => {
     logoutUser()
-      .then(() => {})
+      .then(() => { })
       .catch((err) => console.log(err));
   };
 
   const navLinks = (
-  <>
-    <li>
-      <NavLink
-        to="/"
-        className={({ isActive }) =>
-          isActive ? "text-primary font-bold underline" : "hover:text-primary"
-        }
-      >
-        Home
-      </NavLink>
-    </li>
-    <li>
-      <NavLink
-        to="/ff"
-        className={({ isActive }) =>
-          isActive ? "text-primary font-bold underline" : "hover:text-primary"
-        }
-      >
-        Tour Packages
-      </NavLink>
-    </li>
-    <li>
-      <NavLink
-        to="/stories"
-        className={({ isActive }) =>
-          isActive ? "text-primary font-bold underline" : "hover:text-primary"
-        }
-      >
-        Travel Stories
-      </NavLink>
-    </li>
-    <li>
-      <NavLink
-        to="/contact"
-        className={({ isActive }) =>
-          isActive ? "text-primary font-bold underline" : "hover:text-primary"
-        }
-      >
-        Contact
-      </NavLink>
-    </li>
-    {user && (
+    <>
       <li>
         <NavLink
-          to="/dashboard"
+          to="/"
           className={({ isActive }) =>
             isActive ? "text-primary font-bold underline" : "hover:text-primary"
           }
         >
-          Dashboard
+          Home
         </NavLink>
       </li>
-    )}
-  </>
-);
+      <li>
+        <NavLink
+          to="/communitypage"
+          className={({ isActive }) =>
+            isActive ? "text-primary font-bold underline" : "hover:text-primary"
+          }
+        >
+          Community
+        </NavLink>
+      </li>
+
+      <li>
+        <NavLink
+          to="/all-trips"
+          className={({ isActive }) =>
+            isActive ? "text-primary font-bold underline" : "hover:text-primary"
+          }
+        >
+          All Trips
+        </NavLink>
+      </li>
+      <li>
+        <NavLink
+          to="/dashboard/manageprofile"
+          className={({ isActive }) =>
+            isActive ? "text-primary font-bold underline" : "hover:text-primary"
+          }
+        >
+          Tour Guide Profile
+        </NavLink>
+      </li>
+      <li>
+        <NavLink
+          to="/about"
+          className={({ isActive }) =>
+            isActive ? "text-primary font-bold underline" : "hover:text-primary"
+          }
+        >
+          About us
+        </NavLink>
+      </li>
+      {user && (
+        <li>
+          <NavLink
+            to="/dashboard"
+            className={({ isActive }) =>
+              isActive ? "text-primary font-bold underline" : "hover:text-primary"
+            }
+          >
+            Tourist Dashboard
+          </NavLink>
+        </li>
+      )}
+    </>
+  );
 
   return (
     <div className="navbar bg-base-100 shadow-md px-4 md:px-10 sticky top-0 z-50">
       <div className="navbar-start">
-       <TourNest></TourNest>
+        <TourNest></TourNest>
       </div>
 
       <div className="navbar-center hidden md:flex">

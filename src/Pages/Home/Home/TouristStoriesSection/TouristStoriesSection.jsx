@@ -37,7 +37,7 @@ const TouristStoriesSection = () => {
     <div className="py-10 px-4 md:px-8 bg-gray-300 rounded-xl shadow-lg">
       <h2 className="text-3xl font-bold text-center mb-8 text-blue-600">Tourist Stories</h2>
 
-      <div className="grid md:grid-cols-2 gap-6">
+      <div className="grid md:grid-cols-4 gap-6">
         {stories.map((story) => (
           <div key={story._id} className="bg-white p-6 rounded-lg shadow hover:shadow-md transition">
             <div className="flex items-center gap-3 mb-3 w-60">
