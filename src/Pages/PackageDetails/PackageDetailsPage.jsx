@@ -6,14 +6,15 @@ import { useState } from "react";
 import Swal from "sweetalert2";
 
 import useAuth from "../../hooks/useAuth";
-import useAxios from "../../hooks/useAxios";
+
 import PackageGallery from "./PackageGallery";
+import useAxiosSecure from "../../hooks/useAxiosSecure";
 
 
 const PackageDetailsPage = () => {
     const { id } = useParams();
 
-    const axios = useAxios();
+    const axios = useAxiosSecure();
     const { user } = useAuth();
     const navigate = useNavigate();
 
@@ -52,7 +53,9 @@ const PackageDetailsPage = () => {
             price: packageData.price,
             tourDate,
             guideName: selectedGuide,
+            guideEmail: selectedGuide?.email,
             status: "pending",
+            payment_status: "unpaid",
         };
 
         try {
@@ -197,20 +200,24 @@ const PackageDetailsPage = () => {
                     <div>
                         <label className="block mb-1 font-medium">Select Tour Guide</label>
                         <select
-                            value={selectedGuide}
-                            onChange={(e) => setSelectedGuide(e.target.value)}
+                            value={selectedGuide?._id || ""}
+                            onChange={(e) => {
+                                const selected = guides.find(guide => guide._id === e.target.value);
+                                setSelectedGuide(selected);
+                            }}
                             className="w-full border p-2 rounded"
                             required
                         >
                             <option value="" disabled>
                                 Choose a guide
                             </option>
-                            {guides?.map((guide) => (
-                                <option key={guide._id} value={guide.name}>
+                            {guides.map((guide) => (
+                                <option key={guide._id} value={guide._id}>
                                     {guide.name}
                                 </option>
                             ))}
                         </select>
+
                     </div>
                     <button
                         type="submit"

@@ -15,7 +15,7 @@ const AddStory = () => {
   const [description, setDescription] = useState('');
   const [images, setImages] = useState([]);
   const [imageUrls, setImageUrls] = useState([]);
-
+  
   const handleImageChange = (e) => {
     setImages([...e.target.files]);
   };

@@ -2,7 +2,7 @@
 import { useEffect, useState } from "react";
 
 import {
- 
+
   GoogleAuthProvider,
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
@@ -15,7 +15,7 @@ import {
 
 import { auth } from "../Firebase/Firebase.config";
 
-import axios from "axios";
+
 import { AuthContext } from "./Context";
 
 
@@ -40,9 +40,9 @@ const AuthProvider = ({ children }) => {
     setLoading(true);
     return signInWithPopup(auth, googleProvider);
   };
-   const forgetPassword = (email) => {
-        return sendPasswordResetEmail(auth, email);
-      };
+  const forgetPassword = (email) => {
+    return sendPasswordResetEmail(auth, email);
+  };
 
   const logoutUser = () => {
     setLoading(true);
@@ -57,33 +57,34 @@ const AuthProvider = ({ children }) => {
   };
 
   useEffect(() => {
-  const unsubscribe = onAuthStateChanged(auth, (loggedUser) => {
-    setUser(loggedUser);
-    setLoading(false);
+    const unSubscribe = onAuthStateChanged(auth, currentUser => {
+            setUser(currentUser);
+            console.log('user in the auth state change', currentUser)
+            setLoading(false);
+        });
 
-    // JWT বাদ দেয়া হয়েছে, শুধু user set করছি
-  });
-
-  return () => unsubscribe();
-}, []);
+        return () => {
+            unSubscribe();
+        };
+  }, []);
 
 
   const authInfo = {
     user,
     setUser,
     loading,
-   createUser,
+    createUser,
     singIn,
     googleSignIn,
     logoutUser,
     forgetPassword,
-   updateUserProfile
+    updateUserProfile
   };
 
   return (
-     <AuthContext value={authInfo}>
-            {children}
-        </AuthContext>
+    <AuthContext value={authInfo}>
+      {children}
+    </AuthContext>
   );
 };
 

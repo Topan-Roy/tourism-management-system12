@@ -19,6 +19,10 @@ import AllTrips from "../Pages/Home/AllTrips/AllTrips";
 import AboutUs from "../Pages/Home/AboutUs/AboutUs";
 import CommunityPage from "../Pages/Home/CommunityPage/CommunityPage";
 import NotFoundPage from "../Shared/NotFoundPage/NotFoundPage";
+import TourGuideDashboardLayout from "../Layout/TourGuideDashboardLayout";
+import ManageProfiletourist from "../Pages/TouristDashboard/ManageProfiletourist/ManageProfiletourist";
+import MyAssignedTours from "../Pages/TouristDashboard/MyAssignedTours/MyAssignedTours";
+
 
 
 export const router = createBrowserRouter([
@@ -106,6 +110,19 @@ export const router = createBrowserRouter([
         Component: AddPackage
       },
     ],
+  },
+  {
+    path:'/tourist-dashboard',
+    element:<PrivateRoute><TourGuideDashboardLayout></TourGuideDashboardLayout></PrivateRoute>,
+    children:[
+       { path: "manageprofile",
+        Component:ManageProfiletourist 
+      },
+    { path: "my-assigned-tours",
+       Component:MyAssignedTours
+      },
+    
+    ]
   },
   {
      path: "/*",

@@ -79,6 +79,18 @@ const Navbar = () => {
           </NavLink>
         </li>
       )}
+      {user && (
+        <li>
+          <NavLink
+            to="/tourist-dashboard"
+            className={({ isActive }) =>
+              isActive ? "text-primary font-bold underline" : "hover:text-primary"
+            }
+          >
+           Tourist Dashboard
+          </NavLink>
+        </li>
+      )}
     </>
   );
 
@@ -89,7 +101,7 @@ const Navbar = () => {
       </div>
 
       <div className="navbar-center hidden md:flex">
-        <ul className="menu menu-horizontal px-1 gap-4 font-semibold">
+        <ul className="menu menu-horizontal px-1 gap-1 font-semibold">
           {navLinks}
         </ul>
       </div>

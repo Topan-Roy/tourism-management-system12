@@ -82,15 +82,22 @@ const MyBookings = () => {
                                 tourDate)}</td>
                             <td>৳{booking.price}</td>
                             <td>
-                                <span
-                                    className={`badge ${booking.status === "paid"
-                                        ? "badge-success"
-                                        : "badge-error"
-                                        }`}
-                                >
-                                    {booking.status || 'unpaid'}
-                                </span>
-                            </td>
+  <span
+    className={`badge ${
+      booking.status === "accepted"
+        ? "badge-success"
+        : booking.status === "in-review"
+        ? "badge-info"
+        : booking.status === "rejected"
+        ? "badge-error"
+        : booking.status === "pending"
+        ? "badge-warning"
+        : "badge-ghost"
+    }`}
+  >
+    {booking.status || "unpaid"}
+  </span>
+</td>
 
                             <td className="space-x-2">
                                 <button
