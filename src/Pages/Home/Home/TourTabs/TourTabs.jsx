@@ -30,7 +30,7 @@ const OurPackages = () => {
           <div className="p-4 space-y-2">
             <h3 className="text-xl text-black font-semibold">{pkg.title}</h3>
             <p className="text-sm text-gray-600">Location: {pkg.location}</p>
-            <p className="text-green-600 font-bold">Price: ${pkg.price}</p>
+            <p className="text-green-600 font-bold">Price: {pkg.price}</p>
             <div className="flex justify-between">
               <button
                 onClick={() => setSelectedPackage(pkg)}

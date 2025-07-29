@@ -144,7 +144,7 @@ const PackageDetailsPage = () => {
                         <button
                             key={guide._id}
                             className="px-4 py-2 rounded bg-blue-600 text-white hover:bg-blue-700 transition"
-                            onClick={() => navigate(`/guides/${guide._id}`)}
+                            // onClick={() => navigate(`/guides/${guide._id}`)}
                         >
                             {guide.name}
                         </button>
