@@ -18,7 +18,7 @@ const AboutUs = () => {
                     <li>
                         🌐{" "}
                         <a
-                            href="https://tourism-topan.web.app"
+                            href="https://tourism-management-syste-e2926.web.app/"
                             target="_blank"
                             rel="noopener noreferrer"
                             className="text-blue-600 hover:underline"
