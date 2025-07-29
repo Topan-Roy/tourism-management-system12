@@ -107,10 +107,12 @@ const MeetOurTourGuides = () => {
             className="w-32 h-32 rounded-full object-cover mb-4"
           />
           <h3 className="text-xl text-black font-semibold">{guide.name}</h3>
-          <p className="text-gray-600">{guide.experience} years experience</p>
-          <button className="mt-3 bg-green-500 hover:bg-green-600 text-white py-1 px-4 rounded">
-            View Profile
-          </button>
+          <p className="text-gray-600">{guide.reason} </p>
+          <NavLink to='/dashboard/manageprofile'>
+            <button className="mt-3 bg-green-500 hover:bg-green-600 text-white py-1 px-4 rounded">
+              View Profile
+            </button>
+          </NavLink>
         </div>
       ))}
     </div>
@@ -131,8 +133,8 @@ const TabsComponent = () => {
         <button
           onClick={() => setActiveTab("packages")}
           className={`pb-3 font-semibold ${activeTab === "packages"
-              ? "border-b-4 border-indigo-600 text-indigo-600"
-              : "text-gray-600 hover:text-indigo-600"
+            ? "border-b-4 border-indigo-600 text-indigo-600"
+            : "text-gray-600 hover:text-indigo-600"
             }`}
         >
           Our Packages
@@ -140,8 +142,8 @@ const TabsComponent = () => {
         <button
           onClick={() => setActiveTab("guides")}
           className={`pb-3 font-semibold ${activeTab === "guides"
-              ? "border-b-4 border-indigo-600 text-indigo-600"
-              : "text-gray-600 hover:text-indigo-600"
+            ? "border-b-4 border-indigo-600 text-indigo-600"
+            : "text-gray-600 hover:text-indigo-600"
             }`}
         >
           Meet Our Tour Guides

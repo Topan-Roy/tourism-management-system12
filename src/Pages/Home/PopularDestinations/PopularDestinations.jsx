@@ -1,4 +1,5 @@
 import React from 'react';
+import { motion } from 'framer-motion'; // ✅ Step 1: Import motion
 
 const destinations = [
   {
@@ -21,13 +22,40 @@ const destinations = [
   },
 ];
 
+// ✅ Optional: Animation config (stagger effect)
+const container = {
+  hidden: { opacity: 0 },
+  show: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.2,
+    },
+  },
+};
+
+const item = {
+  hidden: { opacity: 0, y: 30 },
+  show: { opacity: 1, y: 0 },
+};
+
 const PopularDestinations = () => {
   return (
     <section className="my-12 px-4 max-w-6xl mx-auto">
       <h2 className="text-3xl font-bold text-center mb-8">🌍 Popular Destinations</h2>
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+
+      <motion.div
+        variants={container}
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true }}
+        className="grid grid-cols-1 md:grid-cols-3 gap-6"
+      >
         {destinations.map((place) => (
-          <div key={place.id} className="bg-white rounded-xl shadow-md overflow-hidden">
+          <motion.div
+            key={place.id}
+            variants={item}
+            className="bg-white rounded-xl shadow-md overflow-hidden"
+          >
             <img src={place.image} alt={place.name} className="h-56 w-full object-cover" />
             <div className="p-4">
               <h3 className="text-xl text-black font-semibold">{place.name}</h3>
@@ -36,9 +64,9 @@ const PopularDestinations = () => {
                 View Details
               </button>
             </div>
-          </div>
+          </motion.div>
         ))}
-      </div>
+      </motion.div>
     </section>
   );
 };

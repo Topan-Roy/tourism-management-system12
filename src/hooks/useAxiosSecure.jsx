@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router';
 import useAuth from './useAuth';
 
 const axiosSecure = axios.create({
-  baseURL: `http://localhost:3000`, 
+  baseURL: `https://tourism-management-server-one-gamma.vercel.app`, 
 });
 
 const useAxiosSecure = () => {

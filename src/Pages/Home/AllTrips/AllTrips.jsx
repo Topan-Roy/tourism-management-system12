@@ -23,7 +23,7 @@ const AllTrips = () => {
               alt={pkg.title}
               className="w-full h-48 object-cover rounded"
             />
-            <h3 className="text-xl font-semibold mt-3">{pkg.title}</h3>
+            <h3 className="text-xl text-black font-semibold mt-3">{pkg.title}</h3>
             <p className="text-gray-600">📍 {pkg.location}</p>
             <p className="text-gray-800 font-medium">৳ {pkg.price}</p>
             <p className="text-sm text-gray-500">{pkg.duration}</p>

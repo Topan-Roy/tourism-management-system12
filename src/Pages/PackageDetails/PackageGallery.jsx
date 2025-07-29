@@ -2,10 +2,10 @@ import React from 'react';
 
 const PackageGallery = () => {
   const images = [
-    "https://i.ibb.co/DnZFDG1/images.jpg", // 0
-    "https://i.ibb.co/DnZFDG1/images.jpg", // 1
-    "https://i.ibb.co/DnZFDG1/images.jpg", // 2
-    "https://i.ibb.co/DnZFDG1/images.jpg", // 3
+    "https://i.ibb.co/RpxctZD3/two-deer-in-lush-green-forest-meadow-rain-coniferous-trees-photo.jpg", // 0
+    "https://i.ibb.co/HphmxXGj/autumn-nature-landscape-colorful-forest-autumn-nature-landscape-colorful-forest-morning-sunlight-131.webp", // 1
+    "https://i.ibb.co/h1cLwwYJ/waterfall-rain-forest-16456620.webp", // 2
+    "https://i.ibb.co/LdwmGXkn/istockphoto-537389352-612x612.jpg", // 3
   ];
 
   return (
