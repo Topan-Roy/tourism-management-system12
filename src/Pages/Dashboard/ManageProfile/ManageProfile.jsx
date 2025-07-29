@@ -37,6 +37,7 @@ const ManageProfile = () => {
 
   const handleUpdate = async (e) => {
     e.preventDefault();
+     console.log("📧 Updating user with email:", user?.email);
     try {
       // ✅ Update Firebase profile
       await updateUserProfile(editData.name, editData.photo);
@@ -104,12 +105,12 @@ const ManageProfile = () => {
 
       {/* Modal */}
       {isModalOpen && (
-        <div className="fixed inset-0 bg-black bg-opacity-40 flex items-center justify-center z-50">
-          <div className="bg-white rounded-lg p-6 w-full max-w-md">
+        <div className="fixed inset-0 text-white  bg-black bg-opacity-40 flex items-center justify-center z-50">
+          <div className="bg-black text-white  rounded-lg p-6 w-full max-w-md">
             <h3 className="text-xl text-black font-bold mb-4">Edit Profile</h3>
             <form onSubmit={handleUpdate} className="space-y-4">
               <div>
-                <label className="block text-black text-sm font-medium mb-1">Name</label>
+                <label className="block  text-sm font-medium mb-1">Name</label>
                 <input
                   type="text"
                   name="name"
@@ -120,7 +121,7 @@ const ManageProfile = () => {
                 />
               </div>
               <div>
-                <label className="block text-black text-sm font-medium mb-1">Photo URL</label>
+                <label className="block  text-sm font-medium mb-1">Photo URL</label>
                 <input
                   type="text"
                   name="photo"
@@ -131,7 +132,7 @@ const ManageProfile = () => {
                 />
               </div>
               <div>
-                <label className="block text-black text-sm font-medium mb-1">Email</label>
+                <label className="block  text-sm font-medium mb-1">Email</label>
                 <input
                   type="email"
                   value={user?.email}
@@ -140,7 +141,7 @@ const ManageProfile = () => {
                 />
               </div>
               <div>
-                <label className="block text-black text-sm font-medium mb-1">Role</label>
+                <label className="block  text-sm font-medium mb-1">Role</label>
                 <input
                   type="text"
                   value={dbUser?.role || "tourist"}

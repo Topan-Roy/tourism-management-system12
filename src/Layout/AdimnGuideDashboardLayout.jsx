@@ -8,7 +8,7 @@ import TourNest from '../Shared/TourNest/TourNest';
 
 
 
-const TourGuideDashboardLayout = () => {
+const AdimnGuideDashboardLayout = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   const handleToggle = () => {
@@ -20,7 +20,7 @@ const TourGuideDashboardLayout = () => {
   return (
     <div className="drawer lg:drawer-open">
       <input id="tour-guide-drawer" type="checkbox" className="drawer-toggle" />
-      
+
       {/* Main Content */}
       <div className="drawer-content flex flex-col">
         {/* Mobile Navbar */}
@@ -48,7 +48,7 @@ const TourGuideDashboardLayout = () => {
 
           <li>
             <NavLink
-              to="/tourist-dashboard/manageprofile"
+              to="/dashboard-admin/adminManageProfile"
               className={({ isActive }) =>
                 isActive ? "text-blue-600 font-semibold flex items-center" : "flex items-center"
               }
@@ -59,7 +59,7 @@ const TourGuideDashboardLayout = () => {
 
           <li>
             <NavLink
-              to="/tourist-dashboard/my-assigned-tours"
+              to="/dashboard-admin/roleOptions"
               className={({ isActive }) =>
                 isActive ? "text-blue-600 font-semibold flex items-center" : "flex items-center"
               }
@@ -68,6 +68,16 @@ const TourGuideDashboardLayout = () => {
             </NavLink>
           </li>
 
+          <li>
+            <NavLink
+              to="/dashboard-admin/add-package"
+              className={({ isActive }) =>
+                isActive ? "text-blue-600 font-semibold flex items-center" : "flex items-center"
+              }
+            >
+              <FaPlusCircle className="mr-2" /> Add Package
+            </NavLink>
+          </li>
           <li>
             <NavLink
               to="/dashboard/add-story"
@@ -89,10 +99,21 @@ const TourGuideDashboardLayout = () => {
               <FaRegNewspaper className="mr-2" /> Manage Stories
             </NavLink>
           </li>
+
+          <li>
+            <NavLink
+              to="/dashboard-admin/manage-users"
+              className={({ isActive }) =>
+                isActive ? "text-blue-600 font-semibold flex items-center" : "flex items-center"
+              }
+            >
+              <FaUserTie className="mr-2" /> Manage Users
+            </NavLink>
+          </li>
         </ul>
       </div>
     </div>
   );
 };
 
-export default TourGuideDashboardLayout;
+export default AdimnGuideDashboardLayout;

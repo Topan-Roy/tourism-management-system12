@@ -52,7 +52,7 @@ const TouristStoriesSection = () => {
 
             <div className="flex flex-wrap gap-3">
               <FacebookShareButton url={`${window.location.origin}/story/${story._id}`}>
-                <button className="btn btn-sm btn-info">Share on Facebook</button>
+                <span className="btn btn-sm btn-info">Share on Facebook</span>
               </FacebookShareButton>
 
               <button

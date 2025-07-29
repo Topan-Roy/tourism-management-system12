@@ -22,6 +22,12 @@ import NotFoundPage from "../Shared/NotFoundPage/NotFoundPage";
 import TourGuideDashboardLayout from "../Layout/TourGuideDashboardLayout";
 import ManageProfiletourist from "../Pages/TouristDashboard/ManageProfiletourist/ManageProfiletourist";
 import MyAssignedTours from "../Pages/TouristDashboard/MyAssignedTours/MyAssignedTours";
+import AdimnGuideDashboardLayout from "../Layout/AdimnGuideDashboardLayout";
+import ManageUsers from "../Pages/Dashboard/AdminDashboard/ManageUsers/ManageUsers";
+import AdminRoute from "../Routes/AdminRoute";
+import AdminManageProfile from "../Pages/Dashboard/AdminDashboard/AdminManageProfile/AdminManageProfile";
+
+
 
 
 
@@ -105,10 +111,7 @@ export const router = createBrowserRouter([
         path: "update-story/:id",
         Component: UpdateStory
       },
-      {
-        path: "add-package",
-        Component: AddPackage
-      },
+      
     ],
   },
   {
@@ -122,6 +125,27 @@ export const router = createBrowserRouter([
        Component:MyAssignedTours
       },
     
+    ]
+  },
+  {
+    path:"/dashboard-admin",
+    element:<PrivateRoute><AdimnGuideDashboardLayout></AdimnGuideDashboardLayout></PrivateRoute>,
+    children:[
+      {
+        path:'adminManageProfile',
+        element:<AdminRoute><AdminManageProfile></AdminManageProfile></AdminRoute>
+      },
+      
+      {
+        path:"manage-users",
+      
+        element:<AdminRoute><ManageUsers></ManageUsers></AdminRoute>
+      },
+      {
+        path: "add-package",
+        
+        element:<AdminRoute><AddPackage></AddPackage></AdminRoute>
+      },
     ]
   },
   {

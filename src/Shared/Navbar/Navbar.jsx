@@ -3,9 +3,11 @@ import { useState } from "react";
 import { FaBars, FaTimes } from "react-icons/fa";
 import useAuth from "../../hooks/useAuth";
 import TourNest from "../TourNest/TourNest";
+import useUserRole from "../../hooks/useUserRole";
 
 const Navbar = () => {
   const { user, logoutUser } = useAuth();
+   const { role, roleLoading } = useUserRole();
   const [isOpen, setIsOpen] = useState(false);
 
   const handleLogout = () => {
@@ -54,7 +56,7 @@ const Navbar = () => {
             isActive ? "text-primary font-bold underline" : "hover:text-primary"
           }
         >
-          Tour Guide Profile
+         Guide Profile
         </NavLink>
       </li>
       <li>
@@ -87,7 +89,19 @@ const Navbar = () => {
               isActive ? "text-primary font-bold underline" : "hover:text-primary"
             }
           >
-           Tourist Dashboard
+           Guide Dashboard 
+          </NavLink>
+        </li>
+      )}
+      {!roleLoading && role === 'admin' && (
+        <li>
+          <NavLink
+            to="/dashboard-admin"
+            className={({ isActive }) =>
+              isActive ? "text-primary font-bold underline" : "hover:text-primary"
+            }
+          >
+           Admin Dashboard
           </NavLink>
         </li>
       )}
@@ -95,20 +109,20 @@ const Navbar = () => {
   );
 
   return (
-    <div className="navbar bg-base-100 shadow-md px-4 md:px-10 sticky top-0 z-50">
+    <div className="navbar bg-base-100 shadow-md px-2 md:px-6 sticky top-0 z-50">
       <div className="navbar-start">
         <TourNest></TourNest>
       </div>
 
       <div className="navbar-center hidden md:flex">
-        <ul className="menu menu-horizontal px-1 gap-1 font-semibold">
+        <ul className="menu menu-horizontal px-1  font-semibold">
           {navLinks}
         </ul>
       </div>
 
       <div className="navbar-end">
         {user ? (
-          <div className="flex items-center gap-2">
+          <div className="flex items-center ">
             <img src={user?.photoURL} alt="user" className="w-8 h-8 rounded-full border" />
             <span className="hidden md:inline">{user.displayName}</span>
             <button onClick={handleLogout} className="btn btn-sm btn-error text-white ml-2">Logout</button>

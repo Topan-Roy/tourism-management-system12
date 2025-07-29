@@ -63,7 +63,7 @@ const OurPackages = () => {
               alt={selectedPackage.title}
               className="w-full h-48 object-cover rounded-md mb-4"
             />
-            <h2 className="text-2xl font-bold mb-2">
+            <h2 className="text-2xl text-black font-bold mb-2">
               {selectedPackage.title}
             </h2>
             <p className="text-gray-700 mb-1">

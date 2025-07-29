@@ -33,7 +33,7 @@ const ManageProfiletourist = () => {
         />
         <h3 className="text-xl font-semibold">{user?.displayName}</h3>
         <p><strong>Email:</strong> {user?.email}</p>
-        <p><strong>Role:</strong> Tourist</p>
+        <p><strong>Role:</strong> {user?.role}</p>
 
         <button onClick={() => setIsModalOpen(true)} className="btn btn-primary mt-2">
           ✏️ Edit Profile

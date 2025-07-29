@@ -3,12 +3,13 @@ import Swal from "sweetalert2";
 import useAxios from "../../../hooks/useAxios";
 import useAuth from "../../../hooks/useAuth";
 import { useState } from "react";
+import { useNavigate } from "react-router";
 
 const AddPackage = () => {
   const { register, handleSubmit, reset } = useForm();
   const axiosSecure = useAxios();
   const { user } = useAuth();
-
+const navigate=useNavigate()
   const [tourPlan, setTourPlan] = useState([{ day: "", activity: "" }]);
 
   const handleTourPlanChange = (index, field, value) => {
@@ -52,7 +53,9 @@ const AddPackage = () => {
         Swal.fire("Success!", "Package added successfully", "success");
         reset();
         setTourPlan([{ day: "", activity: "" }]);
+        navigate("/all-trips"); 
       }
+      
     } catch (err) {
       console.log(err);
       Swal.fire("Error", "Failed to add package", "error");

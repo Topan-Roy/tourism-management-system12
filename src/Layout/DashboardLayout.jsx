@@ -100,14 +100,14 @@ const DashboardLayout = () => {
           </li>
 
           <li>
-            <NavLink
+            {/* <NavLink
               to="/dashboard/add-package"
               className={({ isActive }) =>
                 isActive ? "text-blue-600 font-semibold flex items-center" : "flex items-center"
               }
             >
               <FaPlusCircle className="mr-2" /> Add Package
-            </NavLink>
+            </NavLink> */}
           </li>
         </ul>
       </div>
