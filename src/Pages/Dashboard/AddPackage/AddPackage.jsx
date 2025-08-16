@@ -9,7 +9,7 @@ const AddPackage = () => {
   const { register, handleSubmit, reset } = useForm();
   const axiosSecure = useAxios();
   const { user } = useAuth();
-const navigate=useNavigate()
+  const navigate = useNavigate();
   const [tourPlan, setTourPlan] = useState([{ day: "", activity: "" }]);
 
   const handleTourPlanChange = (index, field, value) => {
@@ -18,14 +18,8 @@ const navigate=useNavigate()
     setTourPlan(updated);
   };
 
-  const addDay = () => {
-    setTourPlan([...tourPlan, { day: "", activity: "" }]);
-  };
-
-  const removeDay = (index) => {
-    const updated = tourPlan.filter((_, i) => i !== index);
-    setTourPlan(updated);
-  };
+  const addDay = () => setTourPlan([...tourPlan, { day: "", activity: "" }]);
+  const removeDay = (index) => setTourPlan(tourPlan.filter((_, i) => i !== index));
 
   const onSubmit = async (data) => {
     const validTourPlan = tourPlan.filter(
@@ -33,7 +27,11 @@ const navigate=useNavigate()
     );
 
     if (validTourPlan.length === 0) {
-      return Swal.fire("Warning", "Please fill at least one tour plan day", "warning");
+      return Swal.fire(
+        "Warning",
+        "Please fill at least one tour plan day",
+        "warning"
+      );
     }
 
     const packageData = {
@@ -53,9 +51,8 @@ const navigate=useNavigate()
         Swal.fire("Success!", "Package added successfully", "success");
         reset();
         setTourPlan([{ day: "", activity: "" }]);
-        navigate("/all-trips"); 
+        navigate("/all-trips");
       }
-      
     } catch (err) {
       console.log(err);
       Swal.fire("Error", "Failed to add package", "error");
@@ -63,71 +60,77 @@ const navigate=useNavigate()
   };
 
   return (
-    <div className="p-6 max-w-3xl mx-auto rounded-lg shadow">
-      <h2 className="text-2xl font-semibold mb-6">Add New Tour Package</h2>
+    <div className="p-6 max-w-3xl mx-auto rounded-lg shadow bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100">
+      <h2 className="text-2xl font-semibold mb-6 text-center">Add New Tour Package</h2>
       <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
         <input
           {...register("title", { required: true })}
           type="text"
           placeholder="Package Title"
-          className="w-full p-2 border rounded"
+          className="w-full p-2 border border-gray-300 rounded dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100"
         />
         <input
           {...register("location", { required: true })}
           type="text"
           placeholder="Location"
-          className="w-full p-2 border rounded"
+          className="w-full p-2 border border-gray-300 rounded dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100"
         />
         <input
           {...register("duration", { required: true })}
           type="text"
           placeholder="Duration (e.g., 3 days 2 nights)"
-          className="w-full p-2 border rounded"
+          className="w-full p-2 border border-gray-300 rounded dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100"
         />
         <input
           {...register("price", { required: true })}
           type="number"
           step="0.01"
           placeholder="Price"
-          className="w-full p-2 border rounded"
+          className="w-full p-2 border border-gray-300 rounded dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100"
         />
         <textarea
           {...register("description", { required: true })}
           placeholder="Package Description"
-          className="w-full p-2 border rounded"
+          className="w-full p-2 border border-gray-300 rounded dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100"
           rows={4}
         ></textarea>
         <input
           {...register("photo", { required: true })}
           type="text"
           placeholder="Image URLs (comma separated)"
-          className="w-full p-2 border rounded"
+          className="w-full p-2 border border-gray-300 rounded dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100"
         />
 
         {/* Tour Plan Section */}
-        <div className="border p-4 rounded">
-          <h3 className="text-lg font-semibold mb-2">Tour Plan <span className="text-red-500">*</span></h3>
+        <div className="border border-gray-300 dark:border-gray-600 p-4 rounded bg-gray-50 dark:bg-gray-700">
+          <h3 className="text-lg font-semibold mb-2">
+            Tour Plan <span className="text-red-500">*</span>
+          </h3>
           {tourPlan.map((item, index) => (
             <div key={index} className="mb-3">
               <input
                 type="text"
                 placeholder={`Day ${index + 1}`}
                 value={item.day}
-                onChange={(e) => handleTourPlanChange(index, "day", e.target.value)}
-                className="w-full p-2 mb-1 border rounded"
+                onChange={(e) =>
+                  handleTourPlanChange(index, "day", e.target.value)
+                }
+                className="w-full p-2 mb-1 border border-gray-300 rounded dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100"
               />
               <textarea
                 placeholder="Activity details"
                 value={item.activity}
-                onChange={(e) => handleTourPlanChange(index, "activity", e.target.value)}
-                className="w-full p-2 border rounded"
+                onChange={(e) =>
+                  handleTourPlanChange(index, "activity", e.target.value)
+                }
+                className="w-full p-2 border border-gray-300 rounded dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100"
                 rows={2}
               ></textarea>
               {tourPlan.length > 1 && (
                 <button
                   type="button"
                   onClick={() => removeDay(index)}
-                  className="text-red-600 text-sm mt-1"
+                  className="text-red-600 dark:text-red-400 text-sm mt-1"
                 >
                   Remove
                 </button>
@@ -137,7 +140,7 @@ const navigate=useNavigate()
           <button
             type="button"
             onClick={addDay}
-            className="mt-2 text-blue-600 text-sm underline"
+            className="mt-2 text-blue-600 dark:text-blue-400 text-sm underline"
           >
             + Add another day
           </button>
@@ -145,7 +148,7 @@ const navigate=useNavigate()
 
         <button
           type="submit"
-          className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700"
+          className="w-full bg-blue-600 dark:bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-700 dark:hover:bg-blue-600 transition"
         >
           Add Package
         </button>

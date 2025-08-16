@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { useQuery } from "@tanstack/react-query";
-
 import Swal from "sweetalert2";
 import useAuth from "../../../../hooks/useAuth";
 import useAxiosSecure from "../../../../hooks/useAxiosSecure";
@@ -11,7 +10,6 @@ const AdminManageProfile = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [formData, setFormData] = useState({ name: "", photo: "", phone: "", address: "" });
 
-  // ✅ Load Admin Stats
   const { data: stats = {} } = useQuery({
     queryKey: ["admin-stats"],
     queryFn: async () => {
@@ -20,7 +18,6 @@ const AdminManageProfile = () => {
     }
   });
 
-  // ✅ Load Admin Profile Info (user.email দিয়ে)
   const { data: profile = {}, refetch } = useQuery({
     queryKey: ["admin-profile", user?.email],
     queryFn: async () => {
@@ -29,7 +26,6 @@ const AdminManageProfile = () => {
     }
   });
 
-  // ✅ Update Profile
   const handleUpdate = async (e) => {
     e.preventDefault();
     try {
@@ -40,14 +36,14 @@ const AdminManageProfile = () => {
         refetch();
       }
     } catch (err) {
-        console.log(err)
+      console.log(err);
       Swal.fire("Error", "Failed to update profile", "error");
     }
   };
 
   return (
     <div className="p-6">
-      <h2 className="text-3xl font-bold mb-6">Welcome, {profile.name}!</h2>
+      <h2 className="text-3xl font-bold mb-6 text-gray-900 dark:text-gray-100">Welcome, {profile.name}!</h2>
 
       {/* 🔢 Admin Stats */}
       <div className="grid grid-cols-2 md:grid-cols-3 gap-6 mb-10">
@@ -59,7 +55,7 @@ const AdminManageProfile = () => {
       </div>
 
       {/* 👤 Admin Info Card */}
-      <div className="bg-white dark:bg-gray-800 rounded-xl shadow p-6 max-w-xl">
+      <div className="bg-white dark:bg-gray-800 rounded-xl shadow p-6 max-w-xl transition-colors duration-500">
         <div className="flex items-center gap-4">
           <img
             src={profile.photo}
@@ -67,10 +63,10 @@ const AdminManageProfile = () => {
             className="w-24 h-24 rounded-full object-cover border-4 border-blue-500"
           />
           <div>
-            <h3 className="text-2xl font-bold">{profile.name}</h3>
-            <p>Email: {profile.email}</p>
-            <p>Phone: {profile.phone || "N/A"}</p>
-            <p>Address: {profile.address || "N/A"}</p>
+            <h3 className="text-2xl font-bold text-gray-900 dark:text-gray-100">{profile.name}</h3>
+            <p className="text-gray-800 dark:text-gray-200">Email: {profile.email}</p>
+            <p className="text-gray-800 dark:text-gray-200">Phone: {profile.phone || "N/A"}</p>
+            <p className="text-gray-800 dark:text-gray-200">Address: {profile.address || "N/A"}</p>
             <p className="text-blue-500 font-semibold">Role: {profile.role}</p>
           </div>
         </div>
@@ -93,11 +89,11 @@ const AdminManageProfile = () => {
       {/* ✏️ Edit Modal */}
       {isModalOpen && (
         <div className="fixed inset-0 bg-black bg-opacity-40 z-50 flex justify-center items-center">
-          <div className="bg-white dark:bg-gray-900 p-6 rounded-xl w-full max-w-lg relative">
-            <h2 className="text-2xl font-semibold mb-4">Edit Profile</h2>
+          <div className="bg-white dark:bg-gray-900 p-6 rounded-xl w-full max-w-lg transition-colors duration-500">
+            <h2 className="text-2xl font-semibold mb-4 text-gray-900 dark:text-gray-100">Edit Profile</h2>
             <form onSubmit={handleUpdate} className="grid gap-4">
               <input
-                className="input input-bordered w-full"
+                className="input input-bordered w-full bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-gray-100 border-gray-300 dark:border-gray-700"
                 type="text"
                 value={formData.name}
                 onChange={(e) => setFormData({ ...formData, name: e.target.value })}
@@ -105,7 +101,7 @@ const AdminManageProfile = () => {
                 required
               />
               <input
-                className="input input-bordered w-full"
+                className="input input-bordered w-full bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-gray-100 border-gray-300 dark:border-gray-700"
                 type="text"
                 value={formData.photo}
                 onChange={(e) => setFormData({ ...formData, photo: e.target.value })}
@@ -113,14 +109,14 @@ const AdminManageProfile = () => {
                 required
               />
               <input
-                className="input input-bordered w-full"
+                className="input input-bordered w-full bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-gray-100 border-gray-300 dark:border-gray-700"
                 type="text"
                 value={formData.phone}
                 onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                 placeholder="Phone"
               />
               <input
-                className="input input-bordered w-full"
+                className="input input-bordered w-full bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-gray-100 border-gray-300 dark:border-gray-700"
                 type="text"
                 value={formData.address}
                 onChange={(e) => setFormData({ ...formData, address: e.target.value })}
@@ -139,7 +135,7 @@ const AdminManageProfile = () => {
 };
 
 const StatCard = ({ title, value }) => (
-  <div className="bg-gradient-to-br from-blue-500 to-purple-600 text-white rounded-xl p-6 shadow">
+  <div className="bg-gradient-to-br from-blue-500 to-purple-600 text-white rounded-xl p-6 shadow transition-colors duration-500">
     <h4 className="text-lg font-semibold">{title}</h4>
     <p className="text-3xl font-bold">{value}</p>
   </div>
