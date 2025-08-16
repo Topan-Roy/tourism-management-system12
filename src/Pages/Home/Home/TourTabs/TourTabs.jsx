@@ -34,12 +34,12 @@ const OurPackages = () => {
             <div className="flex justify-between">
               <button
                 onClick={() => setSelectedPackage(pkg)}
-                className="mt-2 bg-blue-500 hover:bg-blue-600 text-white py-1 px-4 rounded"
+                className="mt-2 bg-[#443dff] hover:bg-blue-600 text-white py-1 px-4 rounded"
               >
                 View Details
               </button>
               <NavLink to={`/packages/${pkg._id}`}>
-                <button className="mt-2 bg-blue-500 hover:bg-blue-600 text-white py-1 px-4 rounded">
+                <button className="mt-2 bg-[#443dff] hover:bg-blue-600 text-white py-1 px-4 rounded">
                   Package Details
                 </button>
               </NavLink>

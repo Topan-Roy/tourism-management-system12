@@ -1,5 +1,5 @@
 import React from 'react';
-import { motion } from 'framer-motion'; // ✅ Step 1: Import motion
+import { motion } from 'framer-motion';
 
 const destinations = [
   {
@@ -22,15 +22,10 @@ const destinations = [
   },
 ];
 
-// ✅ Optional: Animation config (stagger effect)
+// Animation config
 const container = {
   hidden: { opacity: 0 },
-  show: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.2,
-    },
-  },
+  show: { opacity: 1, transition: { staggerChildren: 0.2 } },
 };
 
 const item = {
@@ -40,27 +35,37 @@ const item = {
 
 const PopularDestinations = () => {
   return (
-    <section className="my-12 px-4 max-w-6xl mx-auto">
-      <h2 className="text-3xl font-bold text-center mb-8">🌍 Popular Destinations</h2>
+    <section className="py-16 mt-6 bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100 px-6">
+      <h2 className="text-3xl md:text-4xl font-bold text-center mb-8 transition-colors duration-500">
+        🌍 Popular Destinations
+      </h2>
 
       <motion.div
         variants={container}
         initial="hidden"
         whileInView="show"
         viewport={{ once: true }}
-        className="grid grid-cols-1 md:grid-cols-3 gap-6"
+        className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6"
       >
         {destinations.map((place) => (
           <motion.div
             key={place.id}
             variants={item}
-            className="bg-white rounded-xl shadow-md overflow-hidden"
+            className="rounded-xl shadow-md overflow-hidden bg-white dark:bg-gray-900 text-black dark:text-white transition-colors duration-500 hover:shadow-xl"
           >
-            <img src={place.image} alt={place.name} className="h-56 w-full object-cover" />
+            <img
+              src={place.image}
+              alt={place.name}
+              className="h-56 md:h-64 w-full object-cover transition-all duration-300"
+            />
             <div className="p-4">
-              <h3 className="text-xl text-black font-semibold">{place.name}</h3>
-              <p className="text-gray-500">{place.country}</p>
-              <button className="mt-3 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600">
+              <h3 className="text-xl md:text-2xl font-semibold transition-colors duration-500">
+                {place.name}
+              </h3>
+              <p className="text-gray-500 dark:text-gray-300 transition-colors duration-500">
+                {place.country}
+              </p>
+              <button className="mt-3 px-4 py-2 bg-[#443dff] text-white rounded hover:bg-[#443dff] transition-colors duration-300">
                 View Details
               </button>
             </div>

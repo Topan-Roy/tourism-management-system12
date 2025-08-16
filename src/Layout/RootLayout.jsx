@@ -6,12 +6,19 @@ import Footer from '../Shared/Footer/Footer';
 const RootLayout = () => {
     return (
         <div >
-            <div className="max-w-7xl mx-auto">
-                 <Navbar></Navbar>
-            <Outlet></Outlet>
+
+            <div className="py-3">
+                <Navbar></Navbar>
             </div>
-           
-            <Footer></Footer>
+            <div className="w-11/12 mx-auto">
+                <Outlet></Outlet>
+            </div>
+
+            <div className="py-3">
+                <Footer></Footer>
+            </div>
+
+
         </div>
     );
 };

@@ -1,6 +1,15 @@
 import React from 'react';
-import { motion } from 'framer-motion'; // ✅ Import motion
+import { motion } from 'framer-motion'; 
 import overviewImg from '/updates.jpg'; 
+
+const containerVariants = {
+  hidden: {},
+  show: {
+    transition: {
+      staggerChildren: 0.2,
+    },
+  },
+};
 
 const textVariants = {
   hidden: { opacity: 0, x: -50 },
@@ -12,45 +21,58 @@ const imageVariants = {
   show: { opacity: 1, x: 0, transition: { duration: 0.8 } },
 };
 
+const listItemVariants = {
+  hidden: { opacity: 0, y: 20 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.6 } },
+};
+
 const OverviewSection = () => {
   return (
-    <section className="bg-gradient-to-r from-[#F9F9F9] to-white py-16 px-6 md:px-20">
-      <div className="grid md:grid-cols-2 gap-10 items-center">
+    <section className="py-16 px-6 md:px-20 bg-gradient-to-r from-[#F9F9F9] to-white dark:from-gray-900 dark:to-gray-800 transition-colors duration-500">
+      <motion.div
+        className="grid md:grid-cols-2 gap-10 items-center"
+        variants={containerVariants}
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true }}
+      >
         {/* Text Part */}
-        <motion.div
-          variants={textVariants}
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true }}
-        >
-          <h2 className="text-4xl font-extrabold mb-4 text-[#0F172A]">
-            Why Choose <span className="text-[#0ea5e9]">TourNest?</span>
+        <motion.div variants={textVariants}>
+          <h2 className="text-4xl font-extrabold mb-4 text-gray-900 dark:text-gray-100">
+            Why Choose <span className="text-[#0ea5e9] dark:text-[#38bdf8]">TourNest?</span>
           </h2>
-          <p className="text-lg text-gray-600 leading-relaxed">
-            TourNest is more than just a tourism site — it’s your personalized gateway to discovering the world. Whether you're looking for hidden gems, cultural journeys, or luxury escapes — we’ve got something tailored just for you.
+          <p className="text-lg leading-relaxed text-gray-700 dark:text-gray-300">
+            TourNest is more than just a tourism site — it’s your personalized gateway to discovering the world.
+            Whether you're looking for hidden gems, cultural journeys, or luxury escapes — we’ve got something tailored just for you.
           </p>
-          <ul className="list-disc list-inside mt-6 space-y-2 text-gray-700">
-            <li>Authentic experiences with local tour guides</li>
-            <li>Secure and easy booking process</li>
-            <li>Customer-first support and flexible plans</li>
-            <li>Curated packages for every travel mood</li>
-          </ul>
+          <motion.ul className="list-disc list-inside  mt-6 space-y-2 text-black dark:text-white">
+            {[
+              "Authentic experiences with local tour guides",
+              "Secure and easy booking process",
+              "Customer-first support and flexible plans",
+              "Curated packages for every travel mood"
+            ].map((item, index) => (
+              <motion.li
+                key={index}
+                variants={listItemVariants}
+                whileHover={{ scale: 1.05, color: "#0ea5e9" }}
+                className="cursor-pointer transition-colors duration-300"
+              >
+                {item}
+              </motion.li>
+            ))}
+          </motion.ul>
         </motion.div>
 
         {/* Image Part */}
-        <motion.div
-          variants={imageVariants}
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true }}
-        >
+        <motion.div variants={imageVariants}>
           <img
             src={overviewImg}
             alt="Tour Overview"
-            className="rounded-2xl shadow-xl w-full object-cover"
+            className="rounded-2xl shadow-xl w-full object-cover border-2 border-gray-300 dark:border-gray-700 transition-colors duration-500 hover:scale-105"
           />
         </motion.div>
-      </div>
+      </motion.div>
     </section>
   );
 };

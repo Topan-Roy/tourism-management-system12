@@ -3,23 +3,20 @@ import { useNavigate } from 'react-router';
 import { FacebookShareButton } from 'react-share';
 import useAuth from '../../../../hooks/useAuth';
 import useAxios from '../../../../hooks/useAxios';
-
+import { useDarkMode } from '../../../../Contexts/ThemeContext';
 
 const TouristStoriesSection = () => {
   const [stories, setStories] = useState([]);
   const navigate = useNavigate();
   const { user } = useAuth();
   const axiosSecure = useAxios();
+  const { darkmode } = useDarkMode();
 
   useEffect(() => {
     axiosSecure
       .get('/stories/random?limit=4')
-      .then((res) => {
-        setStories(res.data);
-      })
-      .catch((err) => {
-        console.error('Error fetching stories:', err);
-      });
+      .then((res) => setStories(res.data))
+      .catch((err) => console.error('Error fetching stories:', err));
   }, [axiosSecure]);
 
   const handleShare = (storyId) => {
@@ -27,62 +24,88 @@ const TouristStoriesSection = () => {
       navigate('/login');
       return;
     }
-
     const url = `${window.location.origin}/story/${storyId}`;
     navigator.clipboard.writeText(url);
     alert('Story link copied! Now you can share.');
   };
 
   return (
-    <div className="py-10 px-4 md:px-8 bg-gray-300 rounded-xl shadow-lg">
-      <h2 className="text-3xl font-bold text-center mb-8 text-blue-600">Tourist Stories</h2>
+    <div
+      className={`py-10 px-4 md:px-8 rounded-xl shadow-lg transition-colors duration-500 ${
+        darkmode ? 'bg-gray-900 text-white' : 'bg-gray-100 text-gray-900'
+      }`}
+    >
+      <h2
+        className={`text-3xl font-bold text-center mb-8 transition-colors duration-500 ${
+          darkmode ? 'text-indigo-700' : 'text-blue-600'
+        }`}
+      >
+        Tourist Stories
+      </h2>
 
       <div className="grid md:grid-cols-4 gap-6">
         {stories.map((story) => (
-          <div key={story._id} className="bg-white p-6 rounded-lg shadow hover:shadow-md transition">
-            <div className="flex items-center gap-3 mb-3 w-60">
+          <div
+            key={story._id}
+            className={`flex flex-col justify-between p-6 rounded-lg shadow hover:shadow-md transition-colors duration-500 ${
+              darkmode ? 'bg-gray-800 text-gray-100' : 'bg-white text-gray-900'
+            }`}
+          >
+            {/* Images */}
+            <div className="flex items-center gap-3 mb-3 overflow-x-auto">
               {story.images.map((img, i) => (
-                <img key={i} src={img} alt="Story" className=" bg-white rounded-xl shadow-md overflow-hidden" />
+                <img
+                  key={i}
+                  src={img}
+                  alt="Story"
+                  className={`h-24 w-24 object-cover rounded-xl shadow-md transition-colors duration-500 ${
+                    darkmode ? 'bg-gray-700' : 'bg-white'
+                  }`}
+                />
               ))}
             </div>
 
-            <p className="text-gray-600 mb-4">
+            {/* Description */}
+            <p
+              className={`mb-4 transition-colors duration-500 ${
+                darkmode ? 'text-gray-300' : 'text-gray-600'
+              }`}
+            >
               {story.description?.slice(0, 120)}...
             </p>
 
-            <div className="flex flex-wrap gap-3">
+            {/* Buttons */}
+            <div className="flex flex-wrap gap-3 mt-auto">
               <FacebookShareButton url={`${window.location.origin}/story/${story._id}`}>
-                <span className="btn btn-sm btn-info">Share on Facebook</span>
+                <span className="btn btn-sm btn-info bg-[#0df4f4]">Share on Facebook</span>
               </FacebookShareButton>
 
               <button
                 onClick={() => handleShare(story._id)}
-                className="btn btn-sm btn-secondary"
+                className={`btn btn-sm bg-[#443dff] ${
+                  darkmode ? 'btn-neutral' : 'btn-secondary'
+                }`}
               >
                 Copy Link
               </button>
 
-              <button
-                onClick={() => navigate(`/story/${story._id}`)}
-                className="btn btn-sm btn-outline"
-              >
-                Read Details
-              </button>
+              
             </div>
           </div>
         ))}
-
       </div>
 
+      {/* See All Stories */}
       <div className="mt-8 text-center">
-  <button
-    onClick={() => navigate('/dashboard/my-story')} 
-    className="btn btn-primary"
-  >
-    See All Stories
-  </button>
-</div>
-
+        <button
+          onClick={() => navigate('/dashboard/my-story')}
+          className={`btn bg-[#443dff] text-white hover:bg-[#66c884]  ${
+            darkmode ? 'bg-[#443dff] text-black hover:bg-[#66c884]' : ''
+          }`}
+        >
+          See All Stories
+        </button>
+      </div>
     </div>
   );
 };
