@@ -57,7 +57,7 @@ const TourGuideDashboardLayout = () => {
             </NavLink>
           </li>
 
-          <li>
+          {/* <li>
             <NavLink
               to="/tourist-dashboard/my-assigned-tours"
               className={({ isActive }) =>
@@ -66,7 +66,7 @@ const TourGuideDashboardLayout = () => {
             >
               <FaClipboardList className="mr-2" /> My Assigned Tours
             </NavLink>
-          </li>
+          </li> */}
 
           <li>
             <NavLink

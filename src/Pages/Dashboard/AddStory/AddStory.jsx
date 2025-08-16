@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router';
 import Swal from 'sweetalert2';
 import useAuth from '../../../hooks/useAuth';
-
 import axios from 'axios';
 import useAxios from '../../../hooks/useAxios';
 
@@ -15,7 +14,7 @@ const AddStory = () => {
   const [description, setDescription] = useState('');
   const [images, setImages] = useState([]);
   const [imageUrls, setImageUrls] = useState([]);
-  
+
   const handleImageChange = (e) => {
     setImages([...e.target.files]);
   };
@@ -45,7 +44,7 @@ const AddStory = () => {
         }
       }
 
-      setImageUrls(uploadedUrls); // optional tracking
+      setImageUrls(uploadedUrls);
 
       const storyData = {
         title,
@@ -64,7 +63,6 @@ const AddStory = () => {
       } else {
         Swal.fire('Error', 'Story not saved to server.', 'error');
       }
-
     } catch (err) {
       console.error(err);
       Swal.fire('Error', err.message || 'Something went wrong.', 'error');
@@ -72,41 +70,51 @@ const AddStory = () => {
   };
 
   return (
-    <div className="max-w-3xl mx-auto p-6 bg-white dark:bg-base-200 rounded-xl shadow-lg mt-6">
-      <h2 className="text-2xl font-semibold mb-4 text-center">Add Your Travel Story</h2>
+    <div className="max-w-3xl mx-auto p-6 bg-white dark:bg-gray-900 rounded-xl shadow-lg mt-6 transition-colors duration-500">
+      <h2 className="text-2xl font-semibold mb-4 text-center text-gray-900 dark:text-gray-100">
+        Add Your Travel Story
+      </h2>
       <form onSubmit={handleSubmit} className="space-y-4">
         <div>
-          <label className="block mb-1 font-medium">Story Title</label>
+          <label className="block mb-1 font-medium text-gray-900 dark:text-gray-100">
+            Story Title
+          </label>
           <input
             type="text"
             value={title}
             onChange={(e) => setTitle(e.target.value)}
-            className="input input-bordered w-full"
+            className="input input-bordered w-full bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-gray-100 border-gray-300 dark:border-gray-700"
             required
           />
         </div>
         <div>
-          <label className="block mb-1 font-medium">Your Experience</label>
+          <label className="block mb-1 font-medium text-gray-900 dark:text-gray-100">
+            Your Experience
+          </label>
           <textarea
             value={description}
             onChange={(e) => setDescription(e.target.value)}
-            className="textarea textarea-bordered w-full min-h-[150px]"
+            className="textarea textarea-bordered w-full min-h-[150px] bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-gray-100 border-gray-300 dark:border-gray-700"
             required
           />
         </div>
         <div>
-          <label className="block mb-1 font-medium">Upload Images</label>
+          <label className="block mb-1 font-medium text-gray-900 dark:text-gray-100">
+            Upload Images
+          </label>
           <input
             type="file"
             multiple
             accept="image/*"
             onChange={handleImageChange}
-            className="file-input file-input-bordered w-full"
+            className="file-input file-input-bordered w-full bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-gray-100 border-gray-300 dark:border-gray-700"
             required
           />
         </div>
         <div className="text-center">
-          <button type="submit" className="btn btn-primary mt-4">Submit Story</button>
+          <button type="submit" className="btn btn-primary mt-4">
+            Submit Story
+          </button>
         </div>
       </form>
     </div>

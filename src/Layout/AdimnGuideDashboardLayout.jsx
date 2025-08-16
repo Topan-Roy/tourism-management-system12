@@ -59,7 +59,7 @@ const AdimnGuideDashboardLayout = () => {
 
           <li>
             <NavLink
-              to="/dashboard-admin/roleOptions"
+              to="/dashboard-admin/my-assigned-tours"
               className={({ isActive }) =>
                 isActive ? "text-blue-600 font-semibold flex items-center" : "flex items-center"
               }

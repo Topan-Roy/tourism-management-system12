@@ -121,9 +121,6 @@ export const router = createBrowserRouter([
        { path: "manageprofile",
         Component:ManageProfiletourist 
       },
-    { path: "my-assigned-tours",
-       Component:MyAssignedTours
-      },
     
     ]
   },
@@ -135,7 +132,10 @@ export const router = createBrowserRouter([
         path:'adminManageProfile',
         element:<AdminRoute><AdminManageProfile></AdminManageProfile></AdminRoute>
       },
-      
+      { path: "my-assigned-tours",
+       Component:MyAssignedTours
+      },
+    
       {
         path:"manage-users",
       

@@ -59,7 +59,7 @@ const Navbar = () => {
             </NavLink>
           </li>
           <li>
-            <NavLink to="/guide-dashboard" className="block px-4 py-2 hover:bg-gray-200 dark:hover:bg-gray-700">
+            <NavLink to="/tourist-dashboard" className="block px-4 py-2 hover:bg-gray-200 dark:hover:bg-gray-700">
               Guide Dashboard
             </NavLink>
           </li>

@@ -38,7 +38,7 @@ const AllTrips = () => {
 
             {/* ✅ সঠিক path */}
             <Link to={`/packages/${pkg._id}`}>
-              <button className="mt-3 bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition">
+              <button className="mt-3 bg-[#443dff] text-white px-4 py-2 rounded hover:bg-[#443dff] transition">
                 View Details
               </button>
             </Link>
