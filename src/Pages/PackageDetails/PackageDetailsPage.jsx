@@ -83,7 +83,7 @@ const PackageDetailsPage = () => {
             </div>
 
             {/* About Tour */}
-            <div className=" rounded-xl shadow-md overflow-hidden md:max-w-2xl mb-8">
+            <div className=" rounded-xl shadow-md overflow-hidden md:max-w-2xl mb-8 bg-white dark:bg-black text-black dark:text-white transition-colors duration-500">
                 <div className="md:flex">
                     <h2 className="text-2xl font-semibold mb-2">About the Tour</h2>
                     <div className="md:shrink-0">
@@ -111,7 +111,7 @@ const PackageDetailsPage = () => {
 
 
             {/* Tour Plan Accordion Style */}
-            <div className="mb-8">
+            <div className="mb-8 bg-white dark:bg-black text-black dark:text-white transition-colors duration-500">
                 <h2 className="text-2xl font-semibold mb-4">Tour Plan</h2>
                 <div className="space-y-2">
                     {packageData.tourPlan?.map((plan, idx) => (
@@ -124,10 +124,10 @@ const PackageDetailsPage = () => {
                                 name="tour-plan-accordion"
                                 defaultChecked={idx === 0}
                             />
-                            <div className="collapse-title font-semibold">
+                            <div className="collapse-title font-semibold bg-white dark:bg-black text-black dark:text-white transition-colors duration-500">
                                 Day {plan.day || idx + 1}
                             </div>
-                            <div className="collapse-content text-sm">
+                            <div className="collapse-content text-sm bg-white dark:bg-black text-black dark:text-white transition-colors duration-500">
                                 {plan.activity}
                             </div>
                         </div>
@@ -138,7 +138,7 @@ const PackageDetailsPage = () => {
 
             {/* Tour Guide List */}
             <div className="mb-10">
-                <h2 className="text-2xl font-semibold mb-3">Meet Our Tour Guides</h2>
+                <h2 className="text-2xl font-semibold mb-3 bg-white dark:bg-black text-black dark:text-white transition-colors duration-500">Meet Our Tour Guides</h2>
                 <div className="flex flex-wrap gap-3">
                     {guides?.map((guide) => (
                         <button
@@ -153,80 +153,83 @@ const PackageDetailsPage = () => {
             </div>
 
             {/* Booking Form */}
-            <div className="bg-white text-black p-6 shadow-md rounded-md">
-                <h2 className="text-xl font-semibold mb-4">Book This Tour</h2>
-                <form onSubmit={handleBooking} className="space-y-4">
-                    {/* Title */}
-                    <input
-                        type="text"
-                        value={packageData.title || ""}
-                        className="w-full border p-2 rounded mb-3"
-                        readOnly
-                    />
-                    <input
-                        type="text"
-                        value={user?.displayName || ""}
-                        className="w-full border p-2 rounded"
-                        readOnly
-                    />
-                    <input
-                        type="email"
-                        value={user?.email || ""}
-                        className="w-full border p-2 rounded"
-                        readOnly
-                    />
-                    <input
-                        type="text"
-                        value={user?.photoURL || ""}
-                        className="w-full border p-2 rounded"
-                        readOnly
-                    />
-                    <input
-                        type="number"
-                        value={packageData.price || ""}
-                        className="w-full border p-2 rounded"
-                        readOnly
-                    />
-                    <div>
-                        <label className="block mb-1 font-medium">Tour Date</label>
-                        <DatePicker
-                            selected={tourDate}
-                            onChange={(date) => setTourDate(date)}
-                            className="w-full border p-2 rounded"
-                            dateFormat="yyyy-MM-dd"
-                            minDate={new Date()}
-                        />
-                    </div>
-                    <div>
-                        <label className="block mb-1 font-medium">Select Tour Guide</label>
-                        <select
-                            value={selectedGuide?._id || ""}
-                            onChange={(e) => {
-                                const selected = guides.find(guide => guide._id === e.target.value);
-                                setSelectedGuide(selected);
-                            }}
-                            className="w-full border p-2 rounded"
-                            required
-                        >
-                            <option value="" disabled>
-                                Choose a guide
-                            </option>
-                            {guides.map((guide) => (
-                                <option key={guide._id} value={guide._id}>
-                                    {guide.name}
-                                </option>
-                            ))}
-                        </select>
+            <div className="bg-white dark:bg-black text-black dark:text-white p-6 shadow-md rounded-md transition-colors duration-300">
+  <h2 className="text-xl font-semibold mb-4">Book This Tour</h2>
+  <form onSubmit={handleBooking} className="space-y-4">
+    {/* Title */}
+    <input
+      type="text"
+      value={packageData.title || ""}
+      className="w-full border p-2 rounded mb-3 bg-white dark:bg-gray-900 text-black dark:text-white"
+      readOnly
+    />
+    <input
+      type="text"
+      value={user?.displayName || ""}
+      className="w-full border p-2 rounded bg-white dark:bg-gray-900 text-black dark:text-white"
+      readOnly
+    />
+    <input
+      type="email"
+      value={user?.email || ""}
+      className="w-full border p-2 rounded bg-white dark:bg-gray-900 text-black dark:text-white"
+      readOnly
+    />
+    <input
+      type="text"
+      value={user?.photoURL || ""}
+      className="w-full border p-2 rounded bg-white dark:bg-gray-900 text-black dark:text-white"
+      readOnly
+    />
+    <input
+      type="number"
+      value={packageData.price || ""}
+      className="w-full border p-2 rounded bg-white dark:bg-gray-900 text-black dark:text-white"
+      readOnly
+    />
 
-                    </div>
-                    <button
-                        type="submit"
-                        className="w-full py-2 bg-green-600 text-white rounded hover:bg-green-700"
-                    >
-                        Book Now
-                    </button>
-                </form>
-            </div>
+    <div>
+      <label className="block mb-1 font-medium">Tour Date</label>
+      <DatePicker
+        selected={tourDate}
+        onChange={(date) => setTourDate(date)}
+        className="w-full border p-2 rounded bg-white dark:bg-gray-900 text-black dark:text-white"
+        dateFormat="yyyy-MM-dd"
+        minDate={new Date()}
+      />
+    </div>
+
+    <div>
+      <label className="block mb-1 font-medium">Select Tour Guide</label>
+      <select
+        value={selectedGuide?._id || ""}
+        onChange={(e) => {
+          const selected = guides.find(guide => guide._id === e.target.value);
+          setSelectedGuide(selected);
+        }}
+        className="w-full border p-2 rounded bg-white dark:bg-gray-900 text-black dark:text-white"
+        required
+      >
+        <option value="" disabled>
+          Choose a guide
+        </option>
+        {guides.map((guide) => (
+          <option key={guide._id} value={guide._id}>
+            {guide.name}
+          </option>
+        ))}
+      </select>
+    </div>
+
+    <button
+      type="submit"
+      className="w-full py-2 bg-green-600 text-white rounded hover:bg-green-700"
+    >
+      Book Now
+    </button>
+  </form>
+</div>
+
         </div>
     );
 };

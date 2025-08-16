@@ -10,7 +10,7 @@ import TouristStoriesSection from './TouristStoriesSection/TouristStoriesSection
 
 const Home = () => {
     return (
-        <div className='mb-5 mt-6 space-y-14'>
+        <div className='mb-5 mt-15 space-y-14'>
             <Banner></Banner>
             <OverviewSection></OverviewSection>
             <TourTabs></TourTabs>

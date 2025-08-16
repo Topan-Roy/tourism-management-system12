@@ -9,7 +9,7 @@ const PackageGallery = () => {
   ];
 
   return (
-    <section className="max-w-5xl  mx-auto px-4 my-10">
+    <section className="max-w-5xl  mx-auto px-4 my-10 bg-white dark:bg-black text-black dark:text-white transition-colors duration-500">
       <h2 className="text-2xl font-bold mb-6 text-center">Tour Package Gallery</h2>
 
       {/* First Image Full Width */}
