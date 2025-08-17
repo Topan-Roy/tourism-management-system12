@@ -7,6 +7,7 @@ import WhyPeopleLove from './WhyPeopleLove/WhyPeopleLove';
 
 import TourTabs from './TourTabs/TourTabs';
 import TouristStoriesSection from './TouristStoriesSection/TouristStoriesSection';
+import BlogSection from './BlogSection/BlogSection';
 
 const Home = () => {
     return (
@@ -16,6 +17,7 @@ const Home = () => {
             <TourTabs></TourTabs>
             <TouristStoriesSection></TouristStoriesSection>
             <WhyPeopleLove></WhyPeopleLove>
+            <BlogSection></BlogSection>
             <PopularDestinations></PopularDestinations>
             <WhyChooseUs></WhyChooseUs>
         </div> 
