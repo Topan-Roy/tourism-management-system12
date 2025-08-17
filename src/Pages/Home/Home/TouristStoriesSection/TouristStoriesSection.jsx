@@ -83,7 +83,7 @@ const TouristStoriesSection = () => {
               <button
                 onClick={() => handleShare(story._id)}
                 className={`btn btn-sm bg-[#07b8f2] ${
-                  darkmode ? 'btn-neutral' : 'btn-secondary'
+                  darkmode ? 'btn-neutral' : ''
                 }`}
               >
                 Copy Link
