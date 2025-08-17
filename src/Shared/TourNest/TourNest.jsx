@@ -8,7 +8,7 @@ const TourNest = () => {
       <Link to="/">
         <div className="flex items-end gap-1">
           <img className="mb-1 h-10 w-10 object-cover rounded-full" src={logo} alt="TourNest Logo" />
-          <p className="text-3xl font-extrabold text-fuchsia-700 dark:text-white">TourNest</p>
+          <p className="text-3xl font-extrabold text-[#443dff] dark:text-white">TourNest</p>
         </div>
       </Link>
     </div>
