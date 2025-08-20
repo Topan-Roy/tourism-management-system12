@@ -22,7 +22,7 @@ const ManageProfiletourist = () => {
 
   return (
     <div className="p-6 max-w-3xl mx-auto">
-      <h2 className="text-2xl font-bold mb-6 text-gray-900 dark:text-gray-100">👋 Welcome, {user?.displayName}</h2>
+      <h2 className="text-3xl font-bold text-center mb-6 text-indigo-700">👋 Welcome, {user?.displayName}</h2>
 
       <div className="bg-gray-100 dark:bg-gray-800 p-6 rounded-lg shadow-md flex flex-col items-center space-y-4 transition-colors duration-500">
         <img
@@ -34,7 +34,7 @@ const ManageProfiletourist = () => {
         <p className="text-gray-800 dark:text-gray-200"><strong>Email:</strong> {user?.email}</p>
         <p className="text-gray-800 dark:text-gray-200"><strong>Role:</strong> {user?.role}</p>
 
-        <button onClick={() => setIsModalOpen(true)} className="btn btn-primary mt-2">
+        <button onClick={() => setIsModalOpen(true)} className="px-2 py-1 rounded-lg bg-blue-600 text-white font-semibold hover:bg-blue-700 transition">
           ✏️ Edit Profile
         </button>
       </div>
@@ -43,7 +43,7 @@ const ManageProfiletourist = () => {
       {isModalOpen && (
         <div className="fixed inset-0 bg-black bg-opacity-40 flex justify-center items-center z-50">
           <div className="bg-white dark:bg-gray-900 p-6 rounded-md w-11/12 md:w-[400px] transition-colors duration-500">
-            <h3 className="text-lg font-bold mb-4 text-gray-900 dark:text-gray-100">Edit Profile</h3>
+            <h3 className="text-3xl font-bold text-center mb-6 text-indigo-700">Edit Profile</h3>
             <form onSubmit={handleUpdate} className="space-y-4">
               <div>
                 <label className="label text-gray-900 dark:text-gray-100">Name</label>
@@ -88,8 +88,8 @@ const ManageProfiletourist = () => {
               </div>
 
               <div className="flex justify-between mt-4">
-                <button type="submit" className="btn btn-primary">Save</button>
-                <button type="button" onClick={() => setIsModalOpen(false)} className="btn btn-outline">Cancel</button>
+                <button type="submit" className="px-2 py-1 rounded-lg bg-blue-600 text-white font-semibold hover:bg-blue-700 transition">Save</button>
+                <button type="button" onClick={() => setIsModalOpen(false)} className="px-2  rounded-lg border-2 border-blue-600 text-blue-600 font-semibold hover:bg-blue-600 hover:text-white transition">Cancel</button>
               </div>
             </form>
           </div>
