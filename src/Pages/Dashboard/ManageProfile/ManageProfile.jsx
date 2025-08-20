@@ -83,13 +83,13 @@ const ManageProfile = () => {
         <div className="flex flex-wrap gap-3">
           <button
             onClick={handleEditOpen}
-            className="bg-[#443dff] text-white px-3 py-1 rounded hover:bg-blue-700 transition"
+            className="px-2 py-1 rounded-lg bg-blue-600 text-white font-semibold hover:bg-blue-700 transition"
           >
             Edit Profile
           </button>
           <button
             onClick={() => navigate("/dashboard/join-as-guide")}
-            className="bg-[#07b8f2] dark:bg-gray-800 dark:text-white px-3 py-1 rounded hover:bg-[#443dff] dark:hover:bg-gray-700 transition"
+            className="px-2  rounded-lg border-2 border-blue-600 text-blue-600 font-semibold hover:bg-blue-600 hover:text-white transition"
           >
             Apply As Tour Guide
           </button>
@@ -100,7 +100,7 @@ const ManageProfile = () => {
       {isModalOpen && (
         <div className="fixed inset-0 bg-black bg-opacity-40 flex items-center justify-center z-50">
           <div className="bg-white dark:bg-black text-black dark:text-white rounded-lg p-6 w-full max-w-md transition-colors duration-500">
-            <h3 className="text-xl font-bold mb-4">Edit Profile</h3>
+            <h3 className="text-3xl font-bold text-center mb-6 text-indigo-700">Edit Profile</h3>
             <form onSubmit={handleUpdate} className="space-y-4">
               <div>
                 <label className="block text-sm font-medium mb-1">Name</label>
@@ -146,13 +146,13 @@ const ManageProfile = () => {
                 <button
                   type="button"
                   onClick={handleEditClose}
-                  className="bg-gray-300 dark:bg-gray-700 dark:text-white px-3 py-1 rounded hover:bg-gray-400 dark:hover:bg-gray-600 transition"
+                  className="px-2  rounded-lg border-2 border-blue-600 text-blue-600 font-semibold hover:bg-blue-600 hover:text-white transition"
                 >
                   Cancel
                 </button>
                 <button
                   type="submit"
-                  className="bg-[#443dff] text-white px-3 py-1 rounded hover:bg-blue-700 transition"
+                  className="px-2 py-1 rounded-lg bg-blue-600 text-white font-semibold hover:bg-blue-700 transition"
                 >
                   Save Changes
                 </button>

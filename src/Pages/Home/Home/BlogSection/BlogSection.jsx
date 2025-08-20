@@ -17,9 +17,9 @@ const blogs = [
   },
   {
     id: 3,
-    title: "Best Food Experiences While Traveling in Bangladesh",
+    title: " Serene Horizons",
     description:
-      "Explore the authentic Bangladeshi cuisine – from street food to traditional meals you should not miss.",
+      "Stand from afar and witness the endless ocean meeting the sky, a moment of calm and wonder.",
     image: "https://i.ibb.co.com/zTPS25N2/photo.jpg",
   },
 ];
@@ -32,7 +32,7 @@ const BlogSection = () => {
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="text-3xl md:text-4xl font-bold mb-8 text-gray-800 dark:text-white"
+          className="text-3xl font-bold text-center mb-6 text-indigo-700"
         >
           Travel Tips & Blogs
         </motion.h2>

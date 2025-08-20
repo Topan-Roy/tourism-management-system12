@@ -96,7 +96,7 @@ const Navbar = () => {
         </div>
 
         {/* Right Side */}
-        <div className="flex items-center gap-3">
+        <div className="hidden sm:flex items-center gap-3">
           {/* Theme Toggle */}
           <button
             onClick={() => setDarkMode(!darkmode)}
@@ -116,13 +116,13 @@ const Navbar = () => {
               <span className="hidden md:inline">{user.displayName}</span>
               <button
                 onClick={handleLogout}
-                className="btn btn-sm btn-red-600 text-white ml-2"
+                className="px-2 py-1 rounded-lg bg-blue-600 text-white font-semibold hover:bg-blue-700 transition"
               >
                 Logout
               </button>
             </div>
           ) : (
-            <Link to="/login" className="btn btn-sm btn-neutral text-white">
+            <Link to="/login" className="px-2 py-1 rounded-lg border-2 border-blue-600 text-blue-600 font-semibold hover:bg-blue-600 hover:text-white transition">
               Login
             </Link>
           )}

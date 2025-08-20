@@ -38,7 +38,7 @@ const WhyChooseUs = () => {
   return (
     <section className="py-12 bg-gray-100 dark:bg-black text-black dark:text-white transition-colors duration-500">
       <div className="max-w-6xl mx-auto px-4">
-        <h2 className="text-3xl font-bold text-center mb-10 transition-colors duration-500">
+        <h2 className="text-3xl font-bold text-center mb-6 text-indigo-700">
           🌟 Why Choose Us?
         </h2>
 

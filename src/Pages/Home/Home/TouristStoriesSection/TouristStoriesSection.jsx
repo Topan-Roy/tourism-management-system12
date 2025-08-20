@@ -36,7 +36,7 @@ const TouristStoriesSection = () => {
       }`}
     >
       <h2
-        className={`text-3xl font-bold text-center mb-8 transition-colors duration-500 ${
+        className={`text-3xl font-bold text-center mb-6 text-indigo-700 ${
           darkmode ? 'text-indigo-700' : 'text-blue-600'
         }`}
       >
@@ -77,12 +77,12 @@ const TouristStoriesSection = () => {
             {/* Buttons */}
             <div className="flex flex-wrap gap-3 mt-auto">
               <FacebookShareButton url={`${window.location.origin}/story/${story._id}`}>
-                <span className="btn btn-sm btn-info bg-[#0df4f4]">Share on Facebook</span>
+                <span className="px-2 py-1 rounded-lg bg-blue-600 text-white font-semibold hover:bg-blue-700 transition">Share on Facebook</span>
               </FacebookShareButton>
 
               <button
                 onClick={() => handleShare(story._id)}
-                className={`btn btn-sm bg-[#07b8f2] ${
+                className={`px-2  rounded-lg border-2 border-blue-600 text-blue-600 font-semibold hover:bg-blue-600 hover:text-white transition ${
                   darkmode ? 'btn-neutral' : ''
                 }`}
               >
@@ -98,8 +98,8 @@ const TouristStoriesSection = () => {
       {/* See All Stories */}
       <div className="mt-8 text-center">
         <button
-          onClick={() => navigate('/dashboard/my-story')}
-          className={`btn bg-[#443dff] text-white hover:bg-[#66c884]  ${
+          onClick={() => navigate('/communitypage')}
+          className={`px-4 py-1 rounded-lg bg-blue-600 text-white font-semibold hover:bg-blue-700 transition  ${
             darkmode ? 'bg-[#443dff] text-black hover:bg-[#66c884]' : ''
           }`}
         >

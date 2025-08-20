@@ -3,7 +3,7 @@ import { FaFacebook, FaGithub, FaGlobe, FaLinkedin } from "react-icons/fa";
 const AboutUs = () => {
   return (
     <div className="max-w-4xl mx-auto px-4 py-12 bg-white text-black dark:bg-black dark:text-white transition-colors duration-500">
-      <h1 className="text-3xl font-bold text-center mb-6">About the Developer</h1>
+      <h1 className="text-3xl font-bold text-center mb-6 text-indigo-700">About the Developer</h1>
 
       <div className="bg-gray-100 dark:bg-gray-900 shadow-lg rounded-lg p-6 transition-colors duration-500">
         {/* Developer Info */}

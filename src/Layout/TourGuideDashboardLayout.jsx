@@ -26,11 +26,11 @@ const TourGuideDashboardLayout = () => {
         {/* Mobile Navbar */}
         <div className="navbar bg-base-300 lg:hidden px-4">
           <div className="flex-none">
-            <button onClick={handleToggle} className="btn btn-square btn-ghost text-xl">
+            <button onClick={handleToggle} className="btn text-white btn-square btn-ghost text-xl">
               {isOpen ? <FaTimes /> : <FaBars />}
             </button>
           </div>
-          <div className="flex-1 text-xl font-semibold">
+          <div className="flex-1 text-white text-xl font-semibold">
             Tour Guide Dashboard
           </div>
         </div>
@@ -57,16 +57,7 @@ const TourGuideDashboardLayout = () => {
             </NavLink>
           </li>
 
-          {/* <li>
-            <NavLink
-              to="/tourist-dashboard/my-assigned-tours"
-              className={({ isActive }) =>
-                isActive ? "text-blue-600 font-semibold flex items-center" : "flex items-center"
-              }
-            >
-              <FaClipboardList className="mr-2" /> My Assigned Tours
-            </NavLink>
-          </li> */}
+          
 
           <li>
             <NavLink

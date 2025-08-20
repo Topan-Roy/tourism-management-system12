@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { NavLink, Outlet } from 'react-router';
 
 import {
-  FaUserEdit, FaUserShield,
   FaPlusCircle, FaBook, FaClipboardList, FaRegNewspaper, FaGlobeAsia,
   FaTimes,
   FaBars
@@ -26,11 +25,11 @@ const DashboardLayout = () => {
         {/* Navbar */}
         <div className="navbar bg-base-300 lg:hidden px-4">
           <div className="flex-none">
-            <button onClick={handleToggle} className="btn btn-square btn-ghost text-xl">
+            <button onClick={handleToggle} className="btn text-white btn-square btn-ghost text-xl">
               {isOpen ? <FaTimes /> : <FaBars />}
             </button>
           </div>
-          <div className="flex-1 text-xl font-semibold ">
+          <div className="flex-1 text-white  text-xl font-semibold ">
             Dashboard
           </div>
         </div>
@@ -100,14 +99,6 @@ const DashboardLayout = () => {
           </li>
 
           <li>
-            {/* <NavLink
-              to="/dashboard/add-package"
-              className={({ isActive }) =>
-                isActive ? "text-blue-600 font-semibold flex items-center" : "flex items-center"
-              }
-            >
-              <FaPlusCircle className="mr-2" /> Add Package
-            </NavLink> */}
           </li>
         </ul>
       </div>

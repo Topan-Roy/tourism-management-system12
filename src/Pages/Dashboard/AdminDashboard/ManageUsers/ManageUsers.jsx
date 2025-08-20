@@ -54,21 +54,26 @@ const ManageUsers = () => {
 
   return (
     <div className="p-6 bg-white dark:bg-gray-900 rounded-lg shadow">
-      <h2 className="text-2xl font-semibold mb-4 text-gray-800 dark:text-gray-100">
+      <h2 className="text-3xl font-bold text-center mb-6 text-indigo-700">
         Manage Users
       </h2>
 
       {/* Search box */}
-      <div className="flex gap-2 mb-6 items-center">
-        <FaSearch className="text-gray-600 dark:text-gray-300" />
+      <div className="relative w-full max-w-md mb-6">
+        <FaSearch
+          className={`absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-600 dark:text-gray-300 transition-all duration-300
+      ${emailQuery ? 'opacity-0 scale-75' : 'opacity-100 scale-100'}`}
+        />
         <input
           type="text"
-          className="w-full max-w-md p-2 border rounded bg-white dark:bg-gray-800 border-gray-300 dark:border-gray-700 text-gray-900 dark:text-gray-100"
+          className="w-full pl-10 p-2 border rounded bg-white dark:bg-gray-800 border-gray-300 dark:border-gray-700 text-gray-900 dark:text-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all duration-300"
           placeholder="Search user by email"
           value={emailQuery}
           onChange={(e) => setEmailQuery(e.target.value)}
         />
       </div>
+
+
 
       {isFetching && <p className="text-gray-600 dark:text-gray-400">Loading users...</p>}
 
@@ -91,11 +96,10 @@ const ManageUsers = () => {
               {users.map((u, index) => (
                 <tr
                   key={u._id}
-                  className={`${
-                    index % 2 === 0
+                  className={`${index % 2 === 0
                       ? "bg-white dark:bg-gray-900"
                       : "bg-gray-50 dark:bg-gray-800"
-                  } border-t border-gray-200 dark:border-gray-700`}
+                    } border-t border-gray-200 dark:border-gray-700`}
                 >
                   <td className="p-2 text-gray-800 dark:text-gray-100">{u.email}</td>
                   <td className="p-2 text-gray-600 dark:text-gray-300">
@@ -103,11 +107,10 @@ const ManageUsers = () => {
                   </td>
                   <td className="p-2">
                     <span
-                      className={`px-2 py-1 rounded text-xs font-medium ${
-                        u.role === "admin"
+                      className={`px-2 py-1 rounded text-xs font-medium ${u.role === "admin"
                           ? "bg-green-100 text-green-800 dark:bg-green-800 dark:text-green-100"
                           : "bg-gray-100 text-gray-800 dark:bg-gray-700 dark:text-gray-200"
-                      }`}
+                        }`}
                     >
                       {u.role || "user"}
                     </span>
@@ -115,11 +118,10 @@ const ManageUsers = () => {
                   <td className="p-2">
                     <button
                       onClick={() => handleRoleChange(u._id, u.role || "user")}
-                      className={`px-3 py-1 rounded text-sm flex items-center gap-1 transition ${
-                        u.role === "admin"
+                      className={`px-3 py-1 rounded text-sm flex items-center gap-1 transition ${u.role === "admin"
                           ? "bg-red-600 hover:bg-red-700 text-white"
                           : "bg-blue-600 hover:bg-blue-700 text-white"
-                      }`}
+                        }`}
                     >
                       {u.role === "admin" ? (
                         <>

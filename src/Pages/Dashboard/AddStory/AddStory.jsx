@@ -71,7 +71,7 @@ const AddStory = () => {
 
   return (
     <div className="max-w-3xl mx-auto p-6 bg-white dark:bg-gray-900 rounded-xl shadow-lg mt-6 transition-colors duration-500">
-      <h2 className="text-2xl font-semibold mb-4 text-center text-gray-900 dark:text-gray-100">
+      <h2 className="text-3xl font-bold text-center mb-6 text-indigo-700">
         Add Your Travel Story
       </h2>
       <form onSubmit={handleSubmit} className="space-y-4">
@@ -112,7 +112,7 @@ const AddStory = () => {
           />
         </div>
         <div className="text-center">
-          <button type="submit" className="btn btn-primary mt-4">
+          <button type="submit" className="px-2 py-1 rounded-lg bg-blue-600 text-white font-semibold hover:bg-blue-700 transition">
             Submit Story
           </button>
         </div>

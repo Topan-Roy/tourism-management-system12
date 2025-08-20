@@ -61,7 +61,7 @@ const AddPackage = () => {
 
   return (
     <div className="p-6 max-w-3xl mx-auto rounded-lg shadow bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100">
-      <h2 className="text-2xl font-semibold mb-6 text-center">Add New Tour Package</h2>
+      <h2 className="text-3xl font-bold text-center mb-6 text-indigo-700">Add New Tour Package</h2>
       <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
         <input
           {...register("title", { required: true })}
@@ -148,7 +148,7 @@ const AddPackage = () => {
 
         <button
           type="submit"
-          className="w-full bg-blue-600 dark:bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-700 dark:hover:bg-blue-600 transition"
+          className="w-full px-2 py-1 rounded-lg bg-blue-600 text-white font-semibold hover:bg-blue-700 transition"
         >
           Add Package
         </button>

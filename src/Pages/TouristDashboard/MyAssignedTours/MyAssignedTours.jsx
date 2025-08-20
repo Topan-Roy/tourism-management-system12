@@ -61,7 +61,7 @@ const MyAssignedTours = () => {
 
   return (
     <div className="p-4">
-      <h2 className="text-2xl font-bold mb-4 text-gray-900 dark:text-gray-100">
+      <h2 className="text-3xl font-bold text-center mb-6 text-indigo-700">
         My Assigned Tours
       </h2>
       <div className="overflow-x-auto">

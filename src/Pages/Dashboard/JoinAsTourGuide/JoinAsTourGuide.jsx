@@ -43,7 +43,7 @@ const JoinAsTourGuide = () => {
 
   return (
     <div className="max-w-2xl mx-auto p-8 rounded shadow my-10 bg-white text-black dark:bg-black dark:text-white transition-colors duration-500">
-      <h2 className="text-2xl font-bold mb-6 text-center text-blue-600 dark:text-teal-400">
+      <h2 className="text-3xl font-bold text-center mb-6 text-indigo-700">
         Apply to Join as a Tour Guide
       </h2>
 
@@ -90,7 +90,7 @@ const JoinAsTourGuide = () => {
         </div>
 
         <div className="text-center">
-          <button className="mt-4 px-4 py-2 rounded bg-blue-600 hover:bg-blue-700 text-white dark:bg-teal-500 dark:hover:bg-teal-600 transition-colors duration-300">
+          <button className="px-2 py-1 rounded-lg bg-blue-600 text-white font-semibold hover:bg-blue-700 transition">
             Submit Application
           </button>
         </div>

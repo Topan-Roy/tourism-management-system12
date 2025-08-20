@@ -43,7 +43,7 @@ const AdminManageProfile = () => {
 
   return (
     <div className="p-6">
-      <h2 className="text-3xl font-bold mb-6 text-gray-900 dark:text-gray-100">Welcome, {profile.name}!</h2>
+      <h2 className="text-3xl font-bold text-center mb-6 text-indigo-700">Welcome, {profile.name}!</h2>
 
       {/* 🔢 Admin Stats */}
       <div className="grid grid-cols-2 md:grid-cols-3 gap-6 mb-10">

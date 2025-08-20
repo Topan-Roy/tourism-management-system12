@@ -68,10 +68,10 @@ const ManageStories = () => {
               </div>
 
               <div className="flex justify-end gap-2 mt-4">
-                <button onClick={() => handleEdit(story._id)} className="btn btn-sm btn-primary">
+                <button onClick={() => handleEdit(story._id)} className="px-2 py-1 rounded-lg bg-blue-600 text-white font-semibold hover:bg-blue-700 transition">
                   Edit
                 </button>
-                <button onClick={() => handleDelete(story._id)} className="btn btn-sm btn-error">
+                <button onClick={() => handleDelete(story._id)} className="px-2  rounded-lg border-2 border-blue-600 text-blue-600 font-semibold hover:bg-blue-600 hover:text-white transition">
                   Delete
                 </button>
               </div>

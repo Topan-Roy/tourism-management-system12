@@ -37,7 +37,7 @@ const itemVariant = {
 const WhyPeopleLove = () => {
   return (
     <section className="py-16 px-6 md:px-20 bg-white dark:bg-black text-black dark:text-white transition-colors duration-500">
-      <h2 className="text-4xl font-bold mb-10 text-center transition-colors duration-500">
+      <h2 className="text-3xl font-bold text-center mb-6 text-indigo-700">
         Why People <span className="text-[#0ea5e9]">Love TourNest</span>
       </h2>
 
