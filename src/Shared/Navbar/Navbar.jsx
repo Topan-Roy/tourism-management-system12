@@ -109,7 +109,7 @@ const Navbar = () => {
           {user ? (
             <div className="flex items-center gap-2">
               <img
-                src={user?.photoURL}
+                src={user?.photoURL ||'https://i.ibb.co.com/LXQj5Fdb/istockphoto-1337144146-612x612.jpg'}
                 alt="user"
                 className="w-8 h-8 rounded-full border"
               />
